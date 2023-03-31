@@ -4,10 +4,9 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
-    "bootstrap": "^5.2.3",
     "cra-template-redux": "2.0.0",
+    "daisyui": "^2.51.5",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
@@ -38,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
   }
 }
