@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <header className={``}>
       <div className="header_top py-1 ">
-        <div className="container flex justify-between text-center  md:flex-row flex-col px-[20px]">
+        <div className="layout flex justify-between text-center  md:flex-row flex-col px-[20px]">
           <div className="">
             <p className="capitalize text-white text-[14px] mb-0 ">
               Free shipping over $100 & free returns
@@ -31,7 +31,7 @@ const Header = () => {
       </div>
       <div>
         <div className="header_middle py-2">
-          <div className="container px-[20px]">
+          <div className="layout px-[20px]">
             <div className="flex items-center justify-between gap-[20px]">
               <div className="logo">
                 <h2>

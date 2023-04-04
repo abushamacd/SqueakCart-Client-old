@@ -23,7 +23,7 @@ body {
   font-family: "IBM Plex Sans", sans-serif !important;
   background-color: #fff;
 }
-.container {
+.layout {
   max-width: 1920px !important;
   margin: 0 auto !important;
 }
@@ -87,8 +87,7 @@ body {
 
 .catagory_menu .dropdown .menu li {
   color: #fff;
-  padding: 10px 0px;
-  margin-bottom: 3px;
+  padding: 5px 0px;
   border-bottom: 1px solid var(--color_3b4149);
 }
 
@@ -110,4 +109,13 @@ body {
 .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):active),
 .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):hover) {
   background-color: var(--color_232f3e);
+}
+
+/* Footer */
+.footer_bg {
+  background-color: var(--color_232f3e);
+}
+
+.footer_bottom {
+  border-top: 1px solid var(--color_3b4149);
 }
