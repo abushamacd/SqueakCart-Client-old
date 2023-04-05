@@ -11,6 +11,7 @@
   --color_232f3e: #232f3e;
   --rounded-btn: 0.2rem;
   background-color: unset;
+  --color_df4800: #df4800;
 }
 
 body {
@@ -121,4 +122,16 @@ body {
 
 .footer_info {
   color: #ddd;
+}
+
+.silder_info {
+  background-color: #00000034;
+}
+
+.banner_subtitle {
+  color: var(--color_df4800) !important;
+}
+
+.silder_info p {
+  color: var(--color_131921);
 }
