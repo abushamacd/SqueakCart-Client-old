@@ -12,6 +12,7 @@
   --rounded-btn: 0.2rem;
   background-color: unset;
   --color_df4800: #df4800;
+  --color_f5f5f7: #f5f5f7;
 }
 
 body {
@@ -134,4 +135,8 @@ body {
 
 .silder_info p {
   color: var(--color_131921);
+}
+
+.body_wrapper {
+  background-color: var(--color_f5f5f7);
 }
