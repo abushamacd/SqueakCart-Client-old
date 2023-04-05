@@ -13,12 +13,6 @@
   background-color: unset;
 }
 
-* {
-  margin: 0 !important;
-  padding: 0;
-  box-sizing: border-box !important;
-}
-
 body {
   font-family: "IBM Plex Sans", sans-serif !important;
   background-color: #fff;
@@ -116,6 +110,15 @@ body {
   background-color: var(--color_232f3e);
 }
 
-.footer_bottom {
+.footer_bottom,
+.footer_middle {
   border-top: 1px solid var(--color_3b4149);
+}
+
+.newsletter span {
+  background-color: var(--color_131921);
+}
+
+.footer_info {
+  color: #ddd;
 }
