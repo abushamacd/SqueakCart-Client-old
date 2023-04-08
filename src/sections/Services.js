@@ -2,7 +2,7 @@ import React from "react";
 
 const Services = () => {
   return (
-    <section className="service_sections hidden md:block py-[10px] ">
+    <section className="service_sections hidden md:block pb-[20px] ">
       <div className="services flex flex-wrap justify-between items-center">
         <div className="service flex items-center gap-[10px]">
           <img src="/images/service.png" alt="" className="" />
