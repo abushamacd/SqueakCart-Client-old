@@ -1,19 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import Slider from "react-slick";
 
 const Blogs = () => {
   const numbers = [1, 2, 3, 4, 5, 6];
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <section className="blogs_section rounded-xl section_gap">
       <div className="section_heading">
         <h4 className="section_title">Our Latest News</h4>
       </div>
       <div className="text-gray-600 body-font">
-        <div className="mx-auto">
-          <div className="flex flex-wrap -mx-4 -my-8">
+        <div className="brand relative mx-auto">
+          <Slider {...settings}>
             {numbers.map((blog) => (
-              <div blog={blog} className="py-4 px-4 md:w-1/4">
+              <div className="py-4 px-4 md:w-1/4">
                 <div className="blog box_shadow rounded-xl">
                   <img
                     className="rounded-xl mb-[10px] w-full"
@@ -51,7 +84,7 @@ const Blogs = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </Slider>
         </div>
       </div>
     </section>

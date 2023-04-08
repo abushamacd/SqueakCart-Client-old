@@ -157,6 +157,10 @@ body {
   background-color: var(--color_f5f5f7);
 }
 
+/* .body_wrapper {
+  background-color: red;
+} */
+
 /* .catagories > div:nth-child(1),
 .catagories > div:nth-child(2),
 .catagories > div:nth-child(3),
@@ -171,4 +175,112 @@ body {
 
 .catagory_desc {
   color: var(--color_3b4149);
+}
+
+/* Blogs */
+.brand .slick-track {
+  display: flex !important;
+}
+.brand .slick-slider {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+.brand .slick-slide {
+  padding-right: 10px !important;
+}
+
+.brand .slick-slide:last-child {
+  padding-right: 0 !important;
+}
+.brand .slick-slide img {
+  display: block !important;
+}
+
+.brand .slick-prev {
+  width: 40px !important;
+  left: 93% !important;
+  top: -13% !important;
+  position: absolute !important;
+  height: 40px !important;
+  background: #ddd !important;
+  z-index: 1 !important;
+  border-radius: 50% !important;
+}
+
+.brand .slick-next {
+  width: 40px !important;
+  right: 0 !important;
+  top: -13% !important;
+  position: absolute !important;
+  height: 40px !important;
+  background: #ddd !important;
+  z-index: 1 !important;
+  border-radius: 50% !important;
+}
+
+.brand .slick-prev:focus,
+.brand .slick-prev:hover,
+.brand .slick-next:hover,
+.brand .slick-next:focus {
+  color: transparent !important;
+  outline: none !important;
+  background: var(--color_febd69) !important;
+}
+.brand .brand-actions {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+/* Large desktop :1920px. */
+@media (min-width: 1280px) {
+}
+
+/* Laptop Device :1366px. */
+@media (min-width: 1200px) and (max-width: 1279px) {
+}
+
+/* Normal desktop :992px. */
+@media (min-width: 1024px) and (max-width: 1200px) {
+}
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .brand .slick-prev {
+    width: 40px !important;
+    left: 88% !important;
+    top: -12% !important;
+    height: 40px !important;
+  }
+  .brand .slick-next {
+    width: 40px !important;
+    right: 0px !important;
+    top: -12% !important;
+    height: 40px !important;
+  }
+}
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+  .brand .slick-prev {
+    width: 30px !important;
+    left: 75% !important;
+    top: -12% !important;
+    position: absolute !important;
+    height: 30px !important;
+    background: #ddd !important;
+    z-index: 1 !important;
+    border-radius: 50% !important;
+  }
+  .brand .slick-next {
+    width: 30px !important;
+    right: 20px !important;
+    top: -12% !important;
+    position: absolute !important;
+    height: 30px !important;
+    background: #ddd !important;
+    z-index: 1 !important;
+    border-radius: 50% !important;
+  }
 }
