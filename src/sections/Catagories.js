@@ -2,7 +2,7 @@ import React from "react";
 
 const Catagories = () => {
   return (
-    <section className="catagories bg-white rounded-xl p-[20px] box_shadow flex flex-wrap ">
+    <section className="catagories bg-white rounded-xl p-[15px] box_shadow flex flex-wrap ">
       {[1, 2, 3, 4, 5, 6, 7, 8].map((catarory) => (
         <div
           key={catarory}
