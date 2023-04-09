@@ -14,6 +14,7 @@
   --color_df4800: #df4800;
   --color_f5f5f7: #f5f5f7;
   --color_ededed: #ededed;
+  --color_bf4800: #bf4800;
 }
 
 body {
@@ -38,6 +39,35 @@ body {
   font-weight: bold;
   margin-bottom: 30px;
   color: var(--color_232f3e);
+}
+
+.slick-prev {
+  width: 40px !important;
+  left: 93% !important;
+  position: absolute !important;
+  height: 40px !important;
+  background: #ddd !important;
+  z-index: 1 !important;
+  border-radius: 50% !important;
+}
+
+.slick-next {
+  width: 40px !important;
+  right: 0 !important;
+  position: absolute !important;
+  height: 40px !important;
+  background: #ddd !important;
+  z-index: 1 !important;
+  border-radius: 50% !important;
+}
+
+.slick-prev:focus,
+.slick-prev:hover,
+.slick-next:hover,
+.slick-next:focus {
+  color: transparent !important;
+  outline: none !important;
+  background: var(--color_232f3e) !important;
 }
 
 /* Header */
@@ -157,17 +187,6 @@ body {
   background-color: var(--color_f5f5f7);
 }
 
-/* .body_wrapper {
-  background-color: red;
-} */
-
-/* .catagories > div:nth-child(1),
-.catagories > div:nth-child(2),
-.catagories > div:nth-child(3),
-.catagories > div:nth-child(4) {
-  border-bottom: 1px solid var(--color_ededed);
-} */
-
 .catagory {
   border-bottom: 1px solid var(--color_ededed);
   border-right: 1px solid var(--color_ededed);
@@ -178,109 +197,44 @@ body {
 }
 
 /* Blogs */
-.brand .slick-track {
-  display: flex !important;
-}
-.brand .slick-slider {
-  display: flex !important;
-  align-items: center !important;
-  margin: 0 auto !important;
-}
 
-.brand .slick-slide {
-  padding-right: 10px !important;
-}
-
-.brand .slick-slide:last-child {
-  padding-right: 0 !important;
-}
-.brand .slick-slide img {
-  display: block !important;
-}
-
-.brand .slick-prev {
-  width: 40px !important;
-  left: 93% !important;
+.blog .slick-arrow {
   top: -13% !important;
-  position: absolute !important;
-  height: 40px !important;
-  background: #ddd !important;
-  z-index: 1 !important;
-  border-radius: 50% !important;
 }
 
-.brand .slick-next {
-  width: 40px !important;
-  right: 0 !important;
+/* Featured Collection */
+.product_brand {
+  color: var(--color_df4800);
+}
+
+.product_title {
+  color: var(--color_232f3e);
+}
+
+.wishlist img:hover,
+.action_bar img:hover {
+  background-color: var(--color_febd69);
+}
+
+.action_bar {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  right: 0;
+}
+
+.product_inner:hover .action_bar {
+  opacity: 1;
+  visibility: visible;
+  right: 10%;
+}
+
+.product_inner:hover .product_tag {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.featured_collection_section .slick-arrow {
   top: -13% !important;
-  position: absolute !important;
-  height: 40px !important;
-  background: #ddd !important;
-  z-index: 1 !important;
-  border-radius: 50% !important;
-}
-
-.brand .slick-prev:focus,
-.brand .slick-prev:hover,
-.brand .slick-next:hover,
-.brand .slick-next:focus {
-  color: transparent !important;
-  outline: none !important;
-  background: var(--color_febd69) !important;
-}
-.brand .brand-actions {
-  display: flex !important;
-  justify-content: space-between !important;
-}
-
-/* Large desktop :1920px. */
-@media (min-width: 1280px) {
-}
-
-/* Laptop Device :1366px. */
-@media (min-width: 1200px) and (max-width: 1279px) {
-}
-
-/* Normal desktop :992px. */
-@media (min-width: 1024px) and (max-width: 1200px) {
-}
-
-/* Tablet desktop :768px. */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .brand .slick-prev {
-    width: 40px !important;
-    left: 88% !important;
-    top: -12% !important;
-    height: 40px !important;
-  }
-  .brand .slick-next {
-    width: 40px !important;
-    right: 0px !important;
-    top: -12% !important;
-    height: 40px !important;
-  }
-}
-
-/* small mobile :320px. */
-@media (max-width: 767px) {
-  .brand .slick-prev {
-    width: 30px !important;
-    left: 75% !important;
-    top: -12% !important;
-    position: absolute !important;
-    height: 30px !important;
-    background: #ddd !important;
-    z-index: 1 !important;
-    border-radius: 50% !important;
-  }
-  .brand .slick-next {
-    width: 30px !important;
-    right: 20px !important;
-    top: -12% !important;
-    position: absolute !important;
-    height: 30px !important;
-    background: #ddd !important;
-    z-index: 1 !important;
-    border-radius: 50% !important;
-  }
 }

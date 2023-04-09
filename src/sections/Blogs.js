@@ -43,10 +43,10 @@ const Blogs = () => {
         <h4 className="section_title">Our Latest News</h4>
       </div>
       <div className="text-gray-600 body-font">
-        <div className="brand relative mx-auto">
+        <div className="blog relative mx-auto">
           <Slider {...settings}>
             {numbers.map((blog) => (
-              <div className="py-4 px-4 md:w-1/4">
+              <div key={blog} className="py-4 pr-[20px] md:w-1/4">
                 <div className="blog box_shadow rounded-xl">
                   <img
                     className="rounded-xl mb-[10px] w-full"

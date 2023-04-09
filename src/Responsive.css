@@ -1,0 +1,49 @@
+/* Large desktop :1920px. */
+@media (min-width: 1280px) {
+}
+
+/* Laptop Device :1366px. */
+@media (min-width: 1200px) and (max-width: 1279px) {
+}
+
+/* Normal desktop :992px. */
+@media (min-width: 1024px) and (max-width: 1200px) {
+}
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+  .section_title {
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
+  .slick-prev {
+    width: 30px !important;
+    left: 80% !important;
+    position: absolute !important;
+    height: 30px !important;
+    background: #ddd !important;
+    z-index: 1 !important;
+    border-radius: 50% !important;
+  }
+  .slick-next {
+    width: 30px !important;
+    right: 0% !important;
+    position: absolute !important;
+    height: 30px !important;
+    background: #ddd !important;
+    z-index: 1 !important;
+    border-radius: 50% !important;
+  }
+
+  .blog .slick-arrow {
+    top: -10% !important;
+  }
+
+  .featured_collection_section .slick-arrow {
+    top: -10% !important;
+  }
+}

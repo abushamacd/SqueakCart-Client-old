@@ -4,6 +4,7 @@ import Services from "../sections/Services";
 import Catagories from "../sections/Catagories";
 import Brands from "../sections/Brands";
 import Blogs from "../sections/Blogs";
+import FeaturedCollection from "../sections/FeaturedCollection";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Services />
         <Catagories />
         <Brands />
+        <FeaturedCollection />
         <Blogs />
       </div>
     </>
