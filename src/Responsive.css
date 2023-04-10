@@ -50,4 +50,19 @@
   .special_products_section .slick-arrow {
     top: -3% !important;
   }
+  .product_inner:hover .action_bar {
+    opacity: 1;
+    visibility: visible;
+    right: 2%;
+  }
+
+  .special_product_inner:hover .action_bar {
+    right: -4%;
+  }
+
+  .special_product_inner:hover .action_bar {
+    opacity: 1;
+    visibility: visible;
+    right: -2%;
+  }
 }

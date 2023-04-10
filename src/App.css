@@ -24,7 +24,7 @@ body {
   background-color: #fff;
 }
 .layout {
-  max-width: 1920px !important;
+  max-width: 1600px !important;
   margin: 0 auto !important;
 }
 
@@ -228,7 +228,7 @@ body {
 .product_inner:hover .action_bar {
   opacity: 1;
   visibility: visible;
-  right: 10%;
+  right: 2%;
 }
 
 .product_inner:hover .product_tag {
@@ -308,13 +308,13 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
-  right: -1%;
+  right: -5%;
 }
 
 .special_product_inner:hover .action_bar {
   opacity: 1;
   visibility: visible;
-  right: 3%;
+  right: -3%;
 }
 
 .special_products_section .slick-arrow {
@@ -357,7 +357,10 @@ body {
 }
 
 .famous_collection_section .slick-track,
-.featured_collection_section .slick-track {
+.featured_collection_section .slick-track,
+.services .slick-track,
+.blogs_section .slick-track {
   display: flex !important;
   gap: 20px !important;
+  justify-content: space-between !important;
 }

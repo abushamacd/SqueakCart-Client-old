@@ -42,13 +42,13 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <div className="flex gap-[50px] md:w-4/12">
+            <div className="flex justify-around md:gap-[50px] md:w-4/12">
               <div className="md:w-6/12 text-white">
-                <h4 className="capitalize font-bold mb-[20px]">
+                <h4 className="capitalize md:text-start text-center font-bold mb-[20px]">
                   Privecy & policies
                 </h4>
                 <div className="footer_info">
-                  <ul className="privacy_menu">
+                  <ul className="privacy_menu md:text-start text-center">
                     <li className="mb-2 capitalize text-sm ">
                       <Link className="hover:ml-2 duration-300" to="/">
                         privecy policy
@@ -73,9 +73,11 @@ const Footer = () => {
                 </div>
               </div>
               <div className="md:w-6/12 text-white">
-                <h4 className="capitalize font-bold mb-[20px]">Quick Links</h4>
+                <h4 className="capitalize md:text-start text-center font-bold mb-[20px]">
+                  Quick Links
+                </h4>
                 <div className="footer_info">
-                  <ul className="quick_menu">
+                  <ul className="quick_menu md:text-start text-center">
                     <li className="mb-2 capitalize text-sm ">
                       <Link className="hover:ml-2 duration-300" to="/">
                         my account

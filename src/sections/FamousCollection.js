@@ -41,7 +41,7 @@ const FamousCollection = () => {
     <section className="famous_collection_section py-[50px]">
       <Slider {...settings}>
         {numbers.map((product) => (
-          <div className="famous_product md:w-1/4  py-[20px]">
+          <div key={product} className="famous_product md:w-1/4  py-[20px]">
             <Link to={"/"}>
               <div className="slider overflow-hidden box_shadow relative rounded-xl h-[400px]">
                 <img

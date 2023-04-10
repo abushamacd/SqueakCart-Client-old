@@ -42,9 +42,9 @@ const SpecialProducts = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          rows: 1,
           slidesPerRow: 1,
+          slidesToShow: 1,
         },
       },
     ],
@@ -60,7 +60,7 @@ const SpecialProducts = () => {
       <Slider {...product_settings}>
         {numbers.map((image, index) => (
           <div key={index} className="py-[10px] ">
-            <div className="special_product pr-[20px] ">
+            <div className="special_product md:pr-[20px] md:px-0 px-[10px] ">
               <div className="special_product_inner rounded-xl bg-white box_shadow flex md:flex-row flex-col gap-[20px] p-[20px]">
                 <div className="product_photo md:w-1/2 relative">
                   <Slider
@@ -144,7 +144,7 @@ const SpecialProducts = () => {
                     ))}
                   </Swiper>
                 </div> */}
-                  <div className="wishlist absolute right-[3%] top-[3%] ">
+                  <div className="wishlist absolute md:right-[-3%] right-[-2%] top-[3%] ">
                     <img
                       className=" bg-white h-[25px] duration-300 w-[25px] rounded-full p-[5px] "
                       src="/images/wish.svg"

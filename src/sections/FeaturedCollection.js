@@ -52,7 +52,7 @@ const FeaturedCollection = () => {
               <div className="product_tag duration-300 badge badge-warning absolute top-[7%] left-[2%] capitalize font-medium text-xs">
                 tag
               </div>
-              <div className="wishlist absolute right-[10%] top-[7%] ">
+              <div className="wishlist absolute right-[2%]  top-[7%] ">
                 <img
                   className=" bg-white h-[25px] duration-300 w-[25px] rounded-full p-[5px] "
                   src="/images/wish.svg"

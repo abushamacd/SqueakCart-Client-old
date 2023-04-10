@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="hero_area md:px-[50px] p-[20px] md:py-[30px] flex md:flex-row flex-col gap-[30px] ">
+    <div className="hero_area layout md:px-[50px] p-[20px] md:py-[30px] flex md:flex-row flex-col md:gap-[30px] gap-[10px] ">
       <div className="left_banner md:w-1/2 w-full">
         <div className="slider relative">
           <img
@@ -25,9 +25,9 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className="right_banner md:gap-[30px] gap-[25px] md:w-1/2 w-full flex flex-wrap">
+      <div className="right_banner md:gap-[30px] gap-[10px] md:w-1/2 w-full flex flex-wrap">
         {[1, 2, 3, 4].map((single) => (
-          <div key={single} className="side_banner w-[46%] relative">
+          <div key={single} className="side_banner md:w-[46%] w-[48%] relative">
             <img
               className="w-full h-full rounded-xl"
               src="/images/catbanner-01.jpg"

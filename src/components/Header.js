@@ -119,47 +119,43 @@ const Header = () => {
           </div>
         </div>
         <div className="header_bottom py-1">
-          <div className="xxl">
-            <div className="">
-              <div>
-                <div className="menu_area flex items-center ">
-                  <div className="catagories">
-                    <div className="catagory_menu">
-                      <div className="dropdown">
-                        <label
-                          tabIndex={0}
-                          className="btn btn-link text-white no-underline hover:no-underline "
-                        >
-                          <p className="catagory_menu_btn hidden md:flex justify-center items-center gap-[10px] ">
-                            <span className="">show catagories</span>{" "}
-                            <BsCaretDownFill />
-                          </p>
-                          <p className="block md:hidden">
-                            <HiMenuAlt1 />
-                          </p>
-                        </label>
-                        <ul
-                          tabIndex={0}
-                          className="menu menu-compact dropdown-content left-[20px] p-2 shadow bg-base-100 rounded w-52"
-                        >
-                          <li>
-                            <Link to="/">Homepage</Link>
-                          </li>
-                          <li>
-                            <Link to="/">Homepage</Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+          <div className="layout">
+            <div className="menu_area flex items-center ">
+              <div className="catagories">
+                <div className="catagory_menu">
+                  <div className="dropdown">
+                    <label
+                      tabIndex={0}
+                      className="btn btn-link text-white no-underline hover:no-underline "
+                    >
+                      <p className="catagory_menu_btn hidden md:flex justify-center items-center gap-[10px] ">
+                        <span className="">show catagories</span>{" "}
+                        <BsCaretDownFill />
+                      </p>
+                      <p className="block md:hidden">
+                        <HiMenuAlt1 />
+                      </p>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="menu menu-compact dropdown-content left-[20px] p-2 shadow bg-base-100 rounded w-52"
+                    >
+                      <li>
+                        <Link to="/">Homepage</Link>
+                      </li>
+                      <li>
+                        <Link to="/">Homepage</Link>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="mainmenu flex items-center gap-[10px]">
-                    <div className="flex items-center gap-[15px]">
-                      <NavLink to="/">Home</NavLink>
-                      <NavLink to="/">Store</NavLink>
-                      <NavLink to="/contact">Contact Us</NavLink>
-                      <NavLink to="/about">About Us</NavLink>
-                    </div>
-                  </div>
+                </div>
+              </div>
+              <div className="mainmenu flex items-center gap-[10px]">
+                <div className="flex items-center gap-[15px]">
+                  <NavLink to="/">Home</NavLink>
+                  <NavLink to="/">Store</NavLink>
+                  <NavLink to="/contact">Contact Us</NavLink>
+                  <NavLink to="/about">About Us</NavLink>
                 </div>
               </div>
             </div>

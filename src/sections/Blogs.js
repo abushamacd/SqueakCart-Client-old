@@ -46,7 +46,7 @@ const Blogs = () => {
         <div className="blog relative mx-auto">
           <Slider {...settings}>
             {numbers.map((blog) => (
-              <div key={blog} className="py-4 pr-[20px] md:w-1/4">
+              <div key={blog} className="py-4 md:w-1/4">
                 <div className="blog box_shadow rounded-xl">
                   <img
                     className="rounded-xl mb-[10px] w-full"

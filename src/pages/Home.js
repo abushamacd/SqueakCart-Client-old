@@ -11,7 +11,7 @@ import FamousCollection from "../sections/FamousCollection";
 
 const Home = () => {
   return (
-    <>
+    <main className="layout">
       <Banner />
       <div className="body_wrapper md:px-[50px] p-[20px]">
         <Services />
@@ -23,7 +23,7 @@ const Home = () => {
         <PopularCollection />
         <Blogs />
       </div>
-    </>
+    </main>
   );
 };
 
