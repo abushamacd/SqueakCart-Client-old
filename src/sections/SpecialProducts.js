@@ -207,6 +207,14 @@ const SpecialProducts = () => {
                       </p>
                     </div>
                   </div>
+                  <div className="stock">
+                    <h4 className="stock_item text-sm">Items in stock: 4</h4>
+                    <progress
+                      className="progress progress-primary w-full"
+                      value="10"
+                      max="100"
+                    ></progress>
+                  </div>
                   <button className="btn btn-sm product_option rounded-full mt-[20px] ">
                     Small
                   </button>

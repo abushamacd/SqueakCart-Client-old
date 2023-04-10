@@ -6,6 +6,7 @@ import Brands from "../sections/Brands";
 import Blogs from "../sections/Blogs";
 import FeaturedCollection from "../sections/FeaturedCollection";
 import SpecialProducts from "../sections/SpecialProducts";
+import PopularCollection from "../sections/PopularCollection";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <Brands />
         <FeaturedCollection />
         <SpecialProducts />
+        <PopularCollection />
         <Blogs />
       </div>
     </>
