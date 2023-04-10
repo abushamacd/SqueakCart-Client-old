@@ -62,21 +62,21 @@ const FeaturedCollection = () => {
               <div className="action_bar absolute top-[16%] flex flex-col gap-[5px]">
                 <Link to="/">
                   <img
-                    className=" bg-white h-[25px] w-[25px] rounded-full p-[5px] "
+                    className="duration-300 bg-white h-[25px] w-[25px] rounded-full p-[5px] "
                     src="/images/prodcompare.svg"
                     alt=""
                   />
                 </Link>
                 <Link to="/">
                   <img
-                    className=" bg-white h-[25px] w-[25px] rounded-full p-[5px] "
+                    className="duration-300 bg-white h-[25px] w-[25px] rounded-full p-[5px] "
                     src="/images/view.svg"
                     alt=""
                   />
                 </Link>
                 <Link to="/">
                   <img
-                    className=" bg-white h-[25px] w-[25px] rounded-full p-[5px] "
+                    className="duration-300 bg-white h-[25px] w-[25px] rounded-full p-[5px] "
                     src="/images/add-cart.svg"
                     alt=""
                   />

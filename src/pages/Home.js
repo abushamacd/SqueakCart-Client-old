@@ -5,6 +5,7 @@ import Catagories from "../sections/Catagories";
 import Brands from "../sections/Brands";
 import Blogs from "../sections/Blogs";
 import FeaturedCollection from "../sections/FeaturedCollection";
+import SpecialProducts from "../sections/SpecialProducts";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <Catagories />
         <Brands />
         <FeaturedCollection />
+        <SpecialProducts />
         <Blogs />
       </div>
     </>

@@ -46,4 +46,8 @@
   .featured_collection_section .slick-arrow {
     top: -10% !important;
   }
+
+  .special_products_section .slick-arrow {
+    top: -3% !important;
+  }
 }
