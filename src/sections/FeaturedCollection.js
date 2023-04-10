@@ -46,7 +46,7 @@ const FeaturedCollection = () => {
         {numbers.map((product) => (
           <div
             key={product}
-            className="product min-h-[380px] md:w-1/5 pr-[20px] relative"
+            className="product min-h-[380px] md:w-1/5 relative"
           >
             <div className="product_inner bg-white rounded-xl box_shadow min-h-[340px] my-[20px] p-4">
               <div className="product_tag duration-300 badge badge-warning absolute top-[7%] left-[2%] capitalize font-medium text-xs">

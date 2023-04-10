@@ -345,3 +345,19 @@ body {
   height: 25px !important;
   border-radius: 50% !important;
 }
+
+.famous_collection_section .silder_info p {
+  color: #fff;
+}
+.slider img {
+  overflow: hidden !important;
+}
+.famous_product:hover .slider img {
+  transform: scale(1.2);
+}
+
+.famous_collection_section .slick-track,
+.featured_collection_section .slick-track {
+  display: flex !important;
+  gap: 20px !important;
+}
