@@ -409,3 +409,14 @@ body {
 .random_products div:last-child {
   border-bottom: none;
 }
+
+/* store main */
+.store_header_text {
+  color: var(--color_777777);
+}
+
+.store_header select,
+.product_count {
+  background-color: var(--color_f5f5f7) !important
+  ;
+}
