@@ -65,4 +65,13 @@
     visibility: visible;
     right: -2%;
   }
+
+  /* Our Store */
+  .filter_options {
+    position: absolute;
+    top: 2%;
+    z-index: 99;
+    height: 100vh;
+    overflow: scroll;
+  }
 }

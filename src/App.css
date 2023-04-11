@@ -15,6 +15,7 @@
   --color_f5f5f7: #f5f5f7;
   --color_ededed: #ededed;
   --color_bf4800: #bf4800;
+  --color_777777: #777777;
   --swiper-navigation-size: 12px !important;
   --swiper-theme-color: #000 !important;
 }
@@ -378,4 +379,33 @@ body {
 
 .filter_card {
   margin-bottom: 20px;
+}
+
+.filter_menu_item {
+  color: var(--color_777777);
+}
+
+.sub_filter_title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color_131921);
+  line-height: 28px;
+  margin-bottom: 10px;
+}
+
+.price_range input {
+  background-color: var(--color_f5f5f7);
+}
+
+.product_tag button {
+  background-color: var(--color_f5f5f7);
+  color: var(--color_777777);
+}
+.product_tag button:hover {
+  background-color: var(--color_febd69);
+  color: var(--color_131921);
+}
+
+.random_products div:last-child {
+  border-bottom: none;
 }
