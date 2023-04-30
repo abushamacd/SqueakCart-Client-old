@@ -420,3 +420,19 @@ body {
   background-color: var(--color_f5f5f7) !important
   ;
 }
+
+/* Compare Products */
+
+.cross {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.compare_products .product:hover .cross {
+  visibility: visible;
+  opacity: 1;
+}
+
+.compare_products .info_right {
+  color: var(--color_777777);
+}

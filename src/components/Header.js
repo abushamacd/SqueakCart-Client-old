@@ -55,7 +55,7 @@ const Header = () => {
               <div className="">
                 <div className="header_middle_links flex justify-between md:gap-[20px] gap-[10px]">
                   <div className="">
-                    <Link className="text-white">
+                    <Link to="/compare" className="text-white">
                       <div className="flex items-center gap-[10px] ">
                         <img
                           className="w-[25px] h-[25px]"

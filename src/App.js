@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Store from "./pages/Store";
+import CompareProducts from "./pages/CompareProducts";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="store" element={<Store />} />
+            <Route path="compare" element={<CompareProducts />} />
           </Route>
         </Routes>
       </BrowserRouter>
