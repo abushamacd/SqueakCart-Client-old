@@ -69,7 +69,7 @@ const Header = () => {
                     </Link>
                   </div>
                   <div className="">
-                    <Link className="text-white">
+                    <Link to="/wishlist" className="text-white">
                       <div className="flex items-center gap-[10px]">
                         <img
                           className="w-[25px] h-[25px]"
