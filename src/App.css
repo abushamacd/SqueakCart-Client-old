@@ -436,3 +436,29 @@ body {
 .compare_products .info_right {
   color: var(--color_777777);
 }
+
+/* User */
+
+.user_form input {
+  background-color: var(--color_f5f5f7);
+}
+
+.first_button {
+  background-color: var(--color_232f3e);
+  color: #fff;
+}
+
+.first_button:hover {
+  background-color: var(--color_febd69);
+  color: var(--color_232f3e);
+}
+
+.second_button {
+  background-color: var(--color_febd69);
+  color: var(--color_232f3e);
+}
+
+.second_button:hover {
+  background-color: var(--color_232f3e);
+  color: #fff;
+}
