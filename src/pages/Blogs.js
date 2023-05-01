@@ -66,7 +66,7 @@ const Blogs = () => {
                           jianbing microdosing tousled waistcoat.
                         </p>
                         <Link
-                          to="/"
+                          to="/blog/:id"
                           className="inline-flex items-center mb-4 capitalize text-sm text-indigo-500 hover:underline duration-200 first_button py-[10px] px-[15px] rounded-full "
                         >
                           read More{" "}

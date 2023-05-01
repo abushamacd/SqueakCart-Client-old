@@ -73,6 +73,11 @@ body {
   background: var(--color_232f3e) !important;
 }
 
+input::placeholder,
+textarea::placeholder {
+  font-size: 14px;
+}
+
 /* Header */
 .header_top {
   background-color: var(--color_131921);
@@ -461,4 +466,18 @@ body {
 .second_button:hover {
   background-color: var(--color_232f3e);
   color: #fff;
+}
+
+/* Blog */
+.left_footer {
+  color: var(--color_777777);
+}
+
+.blog_comment h4 {
+  color: var(--color_777777);
+}
+
+input,
+textarea {
+  background-color: var(--color_f5f5f7);
 }
