@@ -154,6 +154,7 @@ const Header = () => {
                 <div className="flex items-center gap-[15px]">
                   <NavLink to="/">Home</NavLink>
                   <NavLink to="/store">Store</NavLink>
+                  <NavLink to="/blogs">Blogs</NavLink>
                   <NavLink to="/contact">Contact Us</NavLink>
                   <NavLink to="/about">About Us</NavLink>
                 </div>

@@ -12,6 +12,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Forget from "./pages/Forget";
 import ChangePassword from "./pages/ChangePassword";
+import Blogs from "./pages/Blogs";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="store" element={<Store />} />
+            <Route path="blogs" element={<Blogs />} />
             <Route path="compare" element={<CompareProducts />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="login" element={<SignIn />} />
