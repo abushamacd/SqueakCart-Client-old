@@ -481,3 +481,13 @@ input,
 textarea {
   background-color: var(--color_f5f5f7);
 }
+
+/* policy */
+
+.policy {
+  color: var(--color_777777);
+}
+
+.policy strong {
+  color: var(--color_232f3e);
+}

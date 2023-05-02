@@ -50,22 +50,34 @@ const Footer = () => {
                 <div className="footer_info">
                   <ul className="privacy_menu md:text-start text-center">
                     <li className="mb-2 capitalize text-sm ">
-                      <Link className="hover:ml-2 duration-300" to="/">
-                        privecy policy
+                      <Link
+                        className="hover:ml-2 duration-300"
+                        to="/privacy-policy"
+                      >
+                        privacy policy
                       </Link>
                     </li>
                     <li className="mb-2 capitalize text-sm ">
-                      <Link className="hover:ml-2 duration-300" to="/">
+                      <Link
+                        className="hover:ml-2 duration-300"
+                        to="/refund-policy"
+                      >
                         refund policy
                       </Link>
                     </li>
                     <li className="mb-2 capitalize text-sm ">
-                      <Link className="hover:ml-2 duration-300" to="/">
+                      <Link
+                        className="hover:ml-2 duration-300"
+                        to="/shipping-policy"
+                      >
                         shipping policy
                       </Link>
                     </li>
                     <li className="mb-2 capitalize text-sm ">
-                      <Link className="hover:ml-2 duration-300" to="/">
+                      <Link
+                        className="hover:ml-2 duration-300"
+                        to="/term-condition"
+                      >
                         Terms of service
                       </Link>
                     </li>

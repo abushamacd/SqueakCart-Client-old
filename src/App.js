@@ -14,6 +14,10 @@ import Forget from "./pages/Forget";
 import ChangePassword from "./pages/ChangePassword";
 import Blogs from "./pages/Blogs";
 import SingleBlog from "./pages/SingleBlog";
+import PrivacyPolicy from "./pages/PrivecyPolicy";
+import RefundPolicy from "./pages/RefundPolicy";
+import ShippingPolicy from "./pages/ShippingPolicy";
+import TermAndCondition from "./pages/TermAndCondition";
 
 function App() {
   return (
@@ -32,6 +36,10 @@ function App() {
             <Route path="forget" element={<Forget />} />
             <Route path="change-password" element={<ChangePassword />} />
             <Route path="register" element={<SignUp />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="refund-policy" element={<RefundPolicy />} />
+            <Route path="shipping-policy" element={<ShippingPolicy />} />
+            <Route path="term-condition" element={<TermAndCondition />} />
           </Route>
         </Routes>
       </BrowserRouter>
