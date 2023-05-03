@@ -20,7 +20,7 @@ const Footer = () => {
                     <input
                       type="text"
                       placeholder="Type your email ....."
-                      className="md:w-[500px] text-black input rounded input-bordered h-[2rem] bg-white "
+                      className="md:w-[500px] w-[200px] text-black input rounded input-bordered h-[2rem] bg-white "
                     />
                     <span className="text-white">Subscribe</span>
                   </label>

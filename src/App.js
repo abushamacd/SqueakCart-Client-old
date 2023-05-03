@@ -21,6 +21,7 @@ import TermAndCondition from "./pages/TermAndCondition";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="product" element={<Store />} />
             <Route path="product/:id" element={<SingleProduct />} />
             <Route path="blogs" element={<Blogs />} />

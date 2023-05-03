@@ -151,7 +151,7 @@ const Header = () => {
                 </div>
               </div>
               <div className="mainmenu flex items-center gap-[10px]">
-                <div className="flex items-center gap-[15px]">
+                <div className="flex flex-wrap md:justify-start justify-center items-center gap-[15px]">
                   <NavLink to="/">Home</NavLink>
                   <NavLink to="/product">Store</NavLink>
                   <NavLink to="/blogs">Blogs</NavLink>
