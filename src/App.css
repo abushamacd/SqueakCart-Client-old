@@ -568,3 +568,7 @@ span.article,
   font-size: 14px;
   color: var(--color_777777);
 }
+
+.input_bg_white {
+  background-color: #fff !important;
+}

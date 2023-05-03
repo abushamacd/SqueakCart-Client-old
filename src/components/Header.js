@@ -97,7 +97,7 @@ const Header = () => {
                     </Link>
                   </div>
                   <div className="">
-                    <Link className=" text-white">
+                    <Link to="cart" className=" text-white">
                       <div className="flex relative items-center md:gap-[10px]">
                         <img
                           className="w-[25px] h-[25px]"
