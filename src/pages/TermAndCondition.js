@@ -9,7 +9,7 @@ const TermAndCondition = () => {
       <div className="">
         <BreadCrumb title="Terms of Services" />
         <div className="body_wrapper md:p-[30px] p-[20px] ">
-          <div className="bg-white p-[20px] rounded-lg policy">
+          <div className="bg-white p-[20px] rounded-lg policy layout">
             <strong>OVERVIEW</strong> <br /> This website is operated by
             <strong> SqueakCart</strong>. Throughout the site, the terms “we”,
             “us” and “our” refer to <strong> SqueakCart</strong>.

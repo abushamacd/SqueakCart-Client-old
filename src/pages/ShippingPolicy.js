@@ -9,7 +9,7 @@ const ShippingPolicy = () => {
       <div className="">
         <BreadCrumb title="Shipping Policy" />
         <div className="body_wrapper md:p-[30px] p-[20px] ">
-          <div className="bg-white p-[20px] rounded-lg policy ">
+          <div className="bg-white p-[20px] rounded-lg policy layout">
             <p>
               Due to the unique products we offer and our continuously low
               prices, all our items come directly from the manufacturer. All

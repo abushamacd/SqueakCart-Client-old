@@ -7,8 +7,8 @@ const ChangePassword = () => {
     <>
       <Head title="Change Password ||" />
       <BreadCrumb title="Change Password" />
-      <div className="body_wrapper layout p-[20px]">
-        <div className="user_form rounded-lg bg-white md:w-[400px] md:my-[50px] p-[20px] mx-auto">
+      <div className="body_wrapper p-[20px]">
+        <div className="user_form rounded-lg bg-white md:w-[400px] md:my-[50px] p-[20px] mx-auto layout">
           <h3 className="login text-center capitalize mb-[15px] text-xl font-bold">
             Change Your Password
           </h3>

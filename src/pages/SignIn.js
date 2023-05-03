@@ -8,8 +8,8 @@ const SignIn = () => {
     <>
       <Head title="Sign In ||" />
       <BreadCrumb title="Sign In" />
-      <div className="body_wrapper layout p-[20px]">
-        <div className="user_form rounded-lg bg-white md:w-[400px] md:my-[50px] p-[20px] mx-auto">
+      <div className="body_wrapper p-[20px]">
+        <div className="user_form rounded-lg bg-white md:w-[400px] md:my-[50px] p-[20px] mx-auto layout">
           <h3 className="login text-center capitalize mb-[20px] text-xl font-bold">
             Login
           </h3>

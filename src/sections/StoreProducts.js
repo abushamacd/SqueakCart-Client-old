@@ -46,7 +46,7 @@ const StoreProducts = () => {
                 />
               </Link>
             </div>
-            <Link to="/">
+            <Link to=":id">
               <div className="product_image h-[200px] flex justify-center items-center overflow-hidden rounded-xl">
                 <img
                   className="rounded-xl bg-center  "
@@ -59,7 +59,7 @@ const StoreProducts = () => {
               <h6 className="product_brand capitalize my-[12px] text-xs font-medium">
                 Hp
               </h6>
-              <Link to="/">
+              <Link to=":id">
                 <h2 className="product_title capitalize font-medium text-[15px] leading-[22px] tracking-[.3px] ">
                   Lorem, ipsum dolor sit amet consectetur
                 </h2>

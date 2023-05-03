@@ -9,7 +9,7 @@ const RefundPolicy = () => {
       <div className="">
         <BreadCrumb title="Refund Policy" />
         <div className="body_wrapper md:p-[30px] p-[20px] ">
-          <div className="bg-white p-[20px] rounded-lg policy">
+          <div className="bg-white p-[20px] rounded-lg policy layout">
             <p>
               <span className="underline">
                 <strong>Order Cancel</strong>

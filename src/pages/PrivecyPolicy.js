@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
       <div className="">
         <BreadCrumb title="Privacy Policy" />
         <div className="body_wrapper md:p-[30px] p-[20px] ">
-          <div className="bg-white p-[20px] rounded-lg policy">
+          <div className="bg-white p-[20px] rounded-lg policy layout">
             <p>
               <strong>
                 <u>SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</u>

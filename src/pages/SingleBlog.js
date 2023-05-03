@@ -74,7 +74,7 @@ const SingleBlog = () => {
                     <li className="">p</li>
                   </ul>
                 </div>
-                <div className="blog_comment bg-white mt-4 rounded-lg p-4">
+                <div className="blog_comment bg-white mt-4 rounded-lg p-4 box_shadow">
                   <h4 className="text-lg">Leave a comment</h4>
                   <form action="">
                     <input

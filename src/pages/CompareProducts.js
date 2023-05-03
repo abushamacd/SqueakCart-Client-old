@@ -8,9 +8,9 @@ const CompareProducts = () => {
   return (
     <>
       <Head title="Compare Products ||" />
-      <div className="body_wrapper layout p-[20px]">
+      <div className="body_wrapper p-[20px]">
         <BreadCrumb title="Compare Products" />
-        <div className="compare_products ">
+        <div className="compare_products layout ">
           <div className="flex flex-wrap md:gap-[1%] gap-[2%]">
             {numbers.map((product) => (
               <div

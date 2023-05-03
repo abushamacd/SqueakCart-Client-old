@@ -8,9 +8,9 @@ const Wishlist = () => {
   return (
     <>
       <Head title="Wish List ||" />
-      <div className="body_wrapper layout p-[20px]">
+      <div className="body_wrapper p-[20px]">
         <BreadCrumb title="Wish List" />
-        <div className="compare_products ">
+        <div className="wishlist_products layout">
           <div className="flex flex-wrap md:gap-[1%] gap-[2%]">
             {numbers.map((product) => (
               <div
