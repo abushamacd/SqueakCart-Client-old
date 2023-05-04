@@ -585,3 +585,10 @@ span.article,
 .input_bg_white {
   background-color: #fff !important;
 }
+
+/*=============== ----Dashboard----
+===============*/
+
+.logo h3.ant-typography {
+  color: var(--color_f5f5f7);
+}

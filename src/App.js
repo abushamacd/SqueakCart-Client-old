@@ -23,6 +23,9 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
+import DBLayout from "./components/DBLayout";
+import Dashboard from "./pages/dashboard/Dashboard";
+import AdminLogin from "./pages/dashboard/AdminLogin";
 
 function App() {
   return (
@@ -50,6 +53,12 @@ function App() {
             <Route path="refund-policy" element={<RefundPolicy />} />
             <Route path="shipping-policy" element={<ShippingPolicy />} />
             <Route path="term-condition" element={<TermAndCondition />} />
+          </Route>
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-reset" element={<AdminLogin />} />
+          <Route path="/admin-forget" element={<AdminLogin />} />
+          <Route path="/admin" element={<DBLayout />}>
+            <Route index element={<Dashboard />} />
           </Route>
         </Routes>
       </BrowserRouter>
