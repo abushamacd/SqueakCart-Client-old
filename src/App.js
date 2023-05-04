@@ -22,6 +22,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
+import Faqs from "./pages/Faqs";
 
 function App() {
   return (
@@ -30,8 +31,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
             <Route path="product" element={<Store />} />
             <Route path="product/:id" element={<SingleProduct />} />
             <Route path="blogs" element={<Blogs />} />
@@ -44,6 +43,9 @@ function App() {
             <Route path="forget" element={<Forget />} />
             <Route path="change-password" element={<ChangePassword />} />
             <Route path="register" element={<SignUp />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="faq" element={<Faqs />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="refund-policy" element={<RefundPolicy />} />
             <Route path="shipping-policy" element={<ShippingPolicy />} />

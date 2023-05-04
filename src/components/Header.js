@@ -4,12 +4,6 @@ import { BsSearch, BsCaretDownFill } from "react-icons/bs";
 import { HiMenuAlt1 } from "react-icons/hi";
 
 const Header = () => {
-  // const [stickheader, setStickheader] = useState(false);
-  // const handleScroll = () => {
-  //   setStickheader(window.scrollY > 10);
-  // };
-  // window.addEventListener("scroll", handleScroll);
-
   return (
     <header className={``}>
       <div className="header_top py-1 ">
@@ -141,22 +135,45 @@ const Header = () => {
                       className="menu menu-compact dropdown-content left-[20px] p-2 shadow bg-base-100 rounded w-52"
                     >
                       <li>
-                        <Link to="/">Homepage</Link>
+                        <Link to="/">Home</Link>
                       </li>
                       <li>
-                        <Link to="/">Homepage</Link>
+                        <Link to="/product">Store</Link>
+                      </li>
+                      <li className="block md:hidden">
+                        <Link to="/blogs">Blogs</Link>
+                      </li>
+                      <li className="block md:hidden">
+                        <Link to="/contact">Contact Us</Link>
+                      </li>
+                      <li className="block md:hidden">
+                        <Link to="/about">About Us</Link>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-              <div className="mainmenu flex items-center gap-[10px]">
+              <div className="mainmenu hidden md:flex items-center gap-[10px]">
                 <div className="flex flex-wrap md:justify-start justify-center items-center gap-[15px]">
                   <NavLink to="/">Home</NavLink>
                   <NavLink to="/product">Store</NavLink>
                   <NavLink to="/blogs">Blogs</NavLink>
                   <NavLink to="/contact">Contact Us</NavLink>
                   <NavLink to="/about">About Us</NavLink>
+                </div>
+              </div>
+              <div className="search md:hidden block">
+                <div className="form-control">
+                  <label className="input-group">
+                    <input
+                      type="text"
+                      placeholder="Search product....."
+                      className=" text-black input rounded input-bordered h-[2rem] bg-white "
+                    />
+                    <span>
+                      <BsSearch color="#fff" className="text-[20px]" />
+                    </span>
+                  </label>
                 </div>
               </div>
             </div>
