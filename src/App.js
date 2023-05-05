@@ -26,6 +26,9 @@ import Faqs from "./pages/Faqs";
 import DBLayout from "./components/DBLayout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AdminLogin from "./pages/dashboard/AdminLogin";
+import AdminReset from "./pages/dashboard/AdminReset";
+import AdminForget from "./pages/dashboard/AdminForget";
+import AdminProfile from "./pages/dashboard/AdminProfile";
 
 function App() {
   return (
@@ -55,10 +58,11 @@ function App() {
             <Route path="term-condition" element={<TermAndCondition />} />
           </Route>
           <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-reset" element={<AdminLogin />} />
-          <Route path="/admin-forget" element={<AdminLogin />} />
+          <Route path="/admin-reset" element={<AdminReset />} />
+          <Route path="/admin-forget" element={<AdminForget />} />
           <Route path="/admin" element={<DBLayout />}>
             <Route index element={<Dashboard />} />
+            <Route path="profile" element={<AdminProfile />} />
           </Route>
         </Routes>
       </BrowserRouter>

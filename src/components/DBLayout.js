@@ -1,19 +1,23 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { Outlet, useNavigate } from "react-router-dom";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import { useState } from "react";
 import Title from "antd/es/typography/Title";
-const { Header, Sider, Content } = Layout;
+import { MdDashboard, MdOutlineList } from "react-icons/md";
+import {
+  FaShoppingCart,
+  FaUserPlus,
+  FaUserCircle,
+  FaCartPlus,
+} from "react-icons/fa";
+import { SiBrandfolder } from "react-icons/si";
+import { TbBrandAirtable } from "react-icons/tb";
 
 const DBLayout = () => {
+  const { Header, Sider, Content } = Layout;
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -28,22 +32,62 @@ const DBLayout = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={[""]}
+          onClick={({ key }) => {
+            if (key == "signout") {
+            } else {
+              navigate(key);
+            }
+          }}
           items={[
             {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
+              key: "",
+              icon: <MdDashboard />,
+              label: "Dashboard",
             },
             {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
+              key: "product",
+              icon: <FaShoppingCart />,
+              label: "Products",
+              children: [
+                {
+                  key: "product-list",
+                  icon: <MdOutlineList />,
+                  label: "Product List",
+                },
+                {
+                  key: "add-product",
+                  icon: <FaCartPlus />,
+                  label: "Add Product",
+                },
+                {
+                  key: "barnd-list",
+                  icon: <SiBrandfolder />,
+                  label: "Brand List",
+                },
+                {
+                  key: "add-product",
+                  icon: <FaCartPlus />,
+                  label: "Add Product",
+                },
+              ],
             },
             {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
+              key: "user",
+              icon: <FaUserCircle />,
+              label: "Users",
+              children: [
+                {
+                  key: "user-list",
+                  icon: <MdOutlineList />,
+                  label: "User List",
+                },
+                {
+                  key: "add-user",
+                  icon: <FaUserPlus />,
+                  label: "Add User",
+                },
+              ],
             },
           ]}
         />
@@ -67,6 +111,7 @@ const DBLayout = () => {
           />
         </Header>
         <Content
+          className="rounded-lg"
           style={{
             margin: "24px 16px",
             padding: 24,
