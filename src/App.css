@@ -120,6 +120,17 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: rotate(45deg);
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color_3b4149);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--color_131921);
+}
+
 /* Header */
 .header_top {
   background-color: var(--color_131921);
@@ -590,11 +601,11 @@ span.article,
 ===============*/
 
 .logo h3.ant-typography {
-  color: var(--color_f5f5f7);
+  color: var(--color_febd69);
 }
 
 /* login */
-.box {
+/* .box {
   position: relative;
   width: 380px;
   border-radius: 10px;
@@ -688,4 +699,22 @@ span.article,
 
 .admin input {
   background-color: unset !important;
+} */
+
+.ant-layout-sider {
+  flex: 0 0 250px !important;
+  max-width: 250px !important;
+  min-width: 250px !important;
+  width: 250px !important;
+}
+
+.ant-layout-sider-collapsed {
+  flex: 0 0 56px !important;
+  max-width: 56px !important;
+  min-width: 56px !important;
+  width: 56px !important;
+}
+
+.ant-menu-title-content {
+  font-size: 15px;
 }

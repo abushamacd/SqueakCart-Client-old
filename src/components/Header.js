@@ -15,7 +15,7 @@ const Header = () => {
           </div>
           <div className="hidden md:block">
             <p className="capitalize text-white text-[14px] mb-0 ">
-              Helpline:{" "}
+              Helpline:
               <a className="text-white" href="tel:+019 0000 0000">
                 +019 0000 0000
               </a>
@@ -28,9 +28,16 @@ const Header = () => {
           <div className="layout px-[20px]">
             <div className="flex items-center justify-between gap-[20px]">
               <div className="logo">
-                <h2>
-                  <Link className="text-white text-2xl">SqueakCart</Link>
-                </h2>
+                {/* <h2>
+                  <Link to="/" className="text-white text-2xl">SqueakCart</Link>
+                </h2> */}
+                <Link to="/" className="text-white text-2xl">
+                  <img
+                    className="md:w-[180px] w-[150px]"
+                    src="images/main_logo.png"
+                    alt=""
+                  />
+                </Link>
               </div>
               <div className="search hidden md:block">
                 <div className="form-control">

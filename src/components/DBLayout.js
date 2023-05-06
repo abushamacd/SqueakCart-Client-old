@@ -1,18 +1,27 @@
 import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import { useState } from "react";
-import Title from "antd/es/typography/Title";
-import { MdDashboard, MdOutlineList } from "react-icons/md";
+import {
+  MdDashboard,
+  MdOutlineList,
+  MdColorLens,
+  MdSell,
+} from "react-icons/md";
 import {
   FaShoppingCart,
   FaUserPlus,
   FaUserCircle,
   FaCartPlus,
+  FaUserTag,
+  FaBlog,
 } from "react-icons/fa";
+import { ImBlog } from "react-icons/im";
 import { SiBrandfolder } from "react-icons/si";
-import { TbBrandAirtable } from "react-icons/tb";
+import { TbBrandAirtable, TbBrandGoogleBigQuery } from "react-icons/tb";
+import { AiOutlineBgColors } from "react-icons/ai";
+import { BiPurchaseTagAlt } from "react-icons/bi";
 
 const DBLayout = () => {
   const { Header, Sider, Content } = Layout;
@@ -22,12 +31,29 @@ const DBLayout = () => {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
-    <Layout className="h-screen">
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+    <Layout className="h-screen ">
+      <Sider
+        className="h-screen overflow-hidden hover:overflow-auto"
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+      >
         <div className="logo">
-          <Title level={3} className="text-center uppercase py-2 text-white">
-            SqueakCart
-          </Title>
+          <Link to="/">
+            {collapsed ? (
+              <img
+                className="p-2 w-[200px] mx-auto"
+                src="images/mobile_logo.png"
+                alt="logo"
+              />
+            ) : (
+              <img
+                className="p-4 w-[200px] mx-auto"
+                src="images/main_logo.png"
+                alt="logo"
+              />
+            )}
+          </Link>
         </div>
         <Menu
           theme="dark"
@@ -42,52 +68,140 @@ const DBLayout = () => {
           items={[
             {
               key: "",
-              icon: <MdDashboard />,
+              icon: <MdDashboard size={18} />,
               label: "Dashboard",
             },
             {
+              key: "customer",
+              icon: <FaUserTag size={18} />,
+              label: "Customers",
+            },
+            {
               key: "product",
-              icon: <FaShoppingCart />,
+              icon: <FaShoppingCart size={18} />,
               label: "Products",
               children: [
                 {
                   key: "product-list",
-                  icon: <MdOutlineList />,
+                  icon: <MdOutlineList size={18} />,
                   label: "Product List",
                 },
                 {
                   key: "add-product",
-                  icon: <FaCartPlus />,
+                  icon: <FaCartPlus size={18} />,
                   label: "Add Product",
                 },
                 {
+                  key: "color-list",
+                  icon: <MdColorLens size={18} />,
+                  label: "Color List",
+                },
+                {
+                  key: "add-color",
+                  icon: <AiOutlineBgColors size={18} />,
+                  label: "Add Color",
+                },
+              ],
+            },
+            {
+              key: "brand",
+              icon: <SiBrandfolder size={18} />,
+              label: "Brands",
+              children: [
+                {
                   key: "barnd-list",
-                  icon: <SiBrandfolder />,
+                  icon: <SiBrandfolder size={18} />,
                   label: "Brand List",
                 },
                 {
-                  key: "add-product",
-                  icon: <FaCartPlus />,
-                  label: "Add Product",
+                  key: "add-barnd",
+                  icon: <TbBrandAirtable size={18} />,
+                  label: "Add Brand",
+                },
+              ],
+            },
+            {
+              key: "category",
+              icon: <SiBrandfolder size={18} />,
+              label: "Categories",
+              children: [
+                {
+                  key: "category-list",
+                  icon: <SiBrandfolder size={18} />,
+                  label: "Category List",
+                },
+                {
+                  key: "add-category",
+                  icon: <TbBrandAirtable size={18} />,
+                  label: "Add Category",
+                },
+              ],
+            },
+            {
+              key: "order",
+              icon: <MdSell size={18} />,
+              label: "Orders",
+              children: [
+                {
+                  key: "order-list",
+                  icon: <MdSell size={18} />,
+                  label: "Order List",
+                },
+                {
+                  key: "add-order",
+                  icon: <BiPurchaseTagAlt size={18} />,
+                  label: "Add Order",
+                },
+              ],
+            },
+            {
+              key: "blog",
+              icon: <FaBlog size={18} />,
+              label: "Blogs",
+              children: [
+                {
+                  key: "blog-list",
+                  icon: <FaBlog size={18} />,
+                  label: "Blog List",
+                },
+                {
+                  key: "add-blog",
+                  icon: <ImBlog size={18} />,
+                  label: "Add Blog",
+                },
+                {
+                  key: "blog-category-list",
+                  icon: <FaBlog size={18} />,
+                  label: "Blog Catagory List",
+                },
+                {
+                  key: "add-blog-category-list",
+                  icon: <ImBlog size={18} />,
+                  label: "Add Blog Catagory List",
                 },
               ],
             },
             {
               key: "user",
-              icon: <FaUserCircle />,
+              icon: <FaUserCircle size={18} />,
               label: "Users",
               children: [
                 {
                   key: "user-list",
-                  icon: <MdOutlineList />,
+                  icon: <MdOutlineList size={18} />,
                   label: "User List",
                 },
                 {
                   key: "add-user",
-                  icon: <FaUserPlus />,
+                  icon: <FaUserPlus size={18} />,
                   label: "Add User",
                 },
               ],
+            },
+            {
+              key: "enquires",
+              icon: <TbBrandGoogleBigQuery size={18} />,
+              label: "Enquires",
             },
           ]}
         />
