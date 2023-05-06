@@ -1,13 +1,14 @@
 import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Button, Layout, Menu, theme } from "antd";
+import { Button, Layout, Menu, theme, Typography, Badge } from "antd";
 import { useState } from "react";
 import {
   MdDashboard,
   MdOutlineList,
   MdColorLens,
   MdSell,
+  MdNotificationsActive,
 } from "react-icons/md";
 import {
   FaShoppingCart,
@@ -22,6 +23,8 @@ import { SiBrandfolder } from "react-icons/si";
 import { TbBrandAirtable, TbBrandGoogleBigQuery } from "react-icons/tb";
 import { AiOutlineBgColors } from "react-icons/ai";
 import { BiPurchaseTagAlt } from "react-icons/bi";
+
+const { Title, Text } = Typography;
 
 const DBLayout = () => {
   const { Header, Sider, Content } = Layout;
@@ -208,6 +211,7 @@ const DBLayout = () => {
       </Sider>
       <Layout>
         <Header
+          className="db_header flex justify-between"
           style={{
             padding: 0,
             background: colorBgContainer,
@@ -223,6 +227,26 @@ const DBLayout = () => {
               height: 64,
             }}
           />
+          <div className="flex justify-center items-center gap-[20px]">
+            <Badge count={99}>
+              <MdNotificationsActive size={24} />
+            </Badge>
+
+            <div className="flex justify-center items-center gap-1">
+              <div className="avatar">
+                <div className="w-10 rounded-md">
+                  <img
+                    alt="user"
+                    src="https://imglarger.com/Images/before-after/ai-image-enlarger-1-before-2.jpg"
+                  />
+                </div>
+              </div>
+              <div className="admin">
+                <Title level={5}>Admin Name</Title>
+                <Text>contact@imshama.com</Text>
+              </div>
+            </div>
+          </div>
         </Header>
         <Content
           className="rounded-lg"

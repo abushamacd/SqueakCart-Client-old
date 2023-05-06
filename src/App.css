@@ -718,3 +718,14 @@ span.article,
 .ant-menu-title-content {
   font-size: 15px;
 }
+
+.ant-layout-header {
+  padding-right: 20px !important;
+}
+
+.ant-layout-header {
+  line-height: unset !important;
+}
+.admin h5 {
+  margin-bottom: 0px !important;
+}
