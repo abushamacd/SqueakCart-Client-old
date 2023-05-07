@@ -63,7 +63,7 @@ const DBLayout = () => {
           mode="inline"
           defaultSelectedKeys={[""]}
           onClick={({ key }) => {
-            if (key == "signout") {
+            if (key === "signout") {
             } else {
               navigate(key);
             }
@@ -249,7 +249,7 @@ const DBLayout = () => {
           </div>
         </Header>
         <Content
-          className="rounded-lg"
+          className="rounded-lg overflow-auto"
           style={{
             margin: "24px 16px",
             padding: 24,

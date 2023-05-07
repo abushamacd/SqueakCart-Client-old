@@ -726,6 +726,20 @@ span.article,
 .ant-layout-header {
   line-height: unset !important;
 }
-.admin h5 {
-  margin-bottom: 0px !important;
+
+.ant-typography {
+  margin: 0px !important;
+}
+
+.ant-layout-content {
+  padding: 20px !important;
+  background-color: transparent !important;
+}
+
+.income_statistic canvas {
+  height: 250px !important;
+}
+
+.active_user h1 {
+  color: var(--color_232f3e) !important;
 }
