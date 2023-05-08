@@ -759,3 +759,33 @@ span.article,
 .recent_reviews_star .react-stars {
   top: -13px !important;
 }
+
+.ql-formats button,
+.ql-formats .ql-picker {
+  border: 1px solid #cccccc !important;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 10px !important;
+}
+
+.ql-toolbar.ql-snow {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.ql-container.ql-snow {
+  border-top: none !important;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.blog input {
+  background-color: unset !important;
+}
+
+.blog .ql-editor {
+  height: 300px !important;
+}

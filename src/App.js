@@ -36,6 +36,8 @@ import CatList from "./pages/dashboard/CatList";
 import BrandList from "./pages/dashboard/BrandList";
 import Customer from "./pages/dashboard/Customer";
 import ProductList from "./pages/dashboard/ProductList";
+import AddProduct from "./pages/dashboard/AddProduct";
+import AddBlog from "./pages/dashboard/AddBlog";
 
 function App() {
   return (
@@ -77,6 +79,8 @@ function App() {
             <Route path="brand-list" element={<BrandList />} />
             <Route path="customer" element={<Customer />} />
             <Route path="product-list" element={<ProductList />} />
+            <Route path="add-product" element={<AddProduct />} />
+            <Route path="add-blog" element={<AddBlog />} />
           </Route>
         </Routes>
       </BrowserRouter>

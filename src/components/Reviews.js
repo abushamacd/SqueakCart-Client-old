@@ -19,6 +19,7 @@ const Reviews = () => {
   };
   useEffect(() => {
     appendData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const onScroll = (e) => {
     if (
