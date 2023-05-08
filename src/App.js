@@ -28,7 +28,14 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import AdminLogin from "./pages/dashboard/AdminLogin";
 import AdminReset from "./pages/dashboard/AdminReset";
 import AdminForget from "./pages/dashboard/AdminForget";
-import AdminProfile from "./pages/dashboard/AdminProfile";
+import Enquery from "./pages/dashboard/Enquery";
+import BlogList from "./pages/dashboard/BlogList";
+import BlogCatList from "./pages/dashboard/BlogCatList";
+import OrderList from "./pages/dashboard/OrderList";
+import CatList from "./pages/dashboard/CatList";
+import BrandList from "./pages/dashboard/BrandList";
+import Customer from "./pages/dashboard/Customer";
+import ProductList from "./pages/dashboard/ProductList";
 
 function App() {
   return (
@@ -62,7 +69,14 @@ function App() {
           <Route path="/admin-forget" element={<AdminForget />} />
           <Route path="/admin" element={<DBLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="profile" element={<AdminProfile />} />
+            <Route path="enquery" element={<Enquery />} />
+            <Route path="blog-list" element={<BlogList />} />
+            <Route path="blog-cat-list" element={<BlogCatList />} />
+            <Route path="order-list" element={<OrderList />} />
+            <Route path="category-list" element={<CatList />} />
+            <Route path="brand-list" element={<BrandList />} />
+            <Route path="customer" element={<Customer />} />
+            <Route path="product-list" element={<ProductList />} />
           </Route>
         </Routes>
       </BrowserRouter>

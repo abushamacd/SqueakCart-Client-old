@@ -112,12 +112,12 @@ const DBLayout = () => {
               label: "Brands",
               children: [
                 {
-                  key: "barnd-list",
+                  key: "brand-list",
                   icon: <SiBrandfolder size={18} />,
                   label: "Brand List",
                 },
                 {
-                  key: "add-barnd",
+                  key: "add-brand",
                   icon: <TbBrandAirtable size={18} />,
                   label: "Add Brand",
                 },
@@ -173,7 +173,7 @@ const DBLayout = () => {
                   label: "Add Blog",
                 },
                 {
-                  key: "blog-category-list",
+                  key: "blog-cat-list",
                   icon: <FaBlog size={18} />,
                   label: "Blog Catagory List",
                 },
@@ -202,7 +202,7 @@ const DBLayout = () => {
               ],
             },
             {
-              key: "enquires",
+              key: "enquery",
               icon: <TbBrandGoogleBigQuery size={18} />,
               label: "Enquires",
             },
