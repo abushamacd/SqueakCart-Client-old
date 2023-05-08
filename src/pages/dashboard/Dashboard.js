@@ -139,7 +139,7 @@ const Dashboard = () => {
   return (
     <div>
       <Title level={3}>Dashboard</Title>
-      <div className="flex md:flex-row gap-[20px] flex-col justify-between mt-2">
+      <div className="flex md:flex-row gap-[20px] flex-col justify-between mt-[20px]">
         <div className="box_shadow md:w-[32.33%] bg-white rounded-lg p-[15px]">
           <div className="">
             <Text type="secondary" className="capitalize">
@@ -222,7 +222,7 @@ const Dashboard = () => {
           <Title className="capitalize" level={5}>
             recent orders
           </Title>
-          <Table columns={columns} dataSource={tableData} />
+          <Table className="mt-2" columns={columns} dataSource={tableData} />
         </div>
         <div className="traffic md:w-[28%] bg-white box_shadow rounded-lg p-[20px] ">
           <div className="mb-2">

@@ -3,7 +3,7 @@ import { Typography, Space, Table, Tag } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const Customer = () => {
+const User = () => {
   const { Title } = Typography;
   const columns = [
     {
@@ -68,10 +68,10 @@ const Customer = () => {
   ];
   return (
     <div>
-      <Title level={3}>Customer List</Title>
+      <Title level={3}>User List</Title>
       <div className="recent_order mt-[20px] overflow-auto bg-white box_shadow rounded-lg p-[20px] mb-[20px] md:mb-[0px] ">
         <Title className="capitalize" level={4}>
-          Customer List
+          Admin Level User
         </Title>
         <Table className="mt-4" columns={columns} dataSource={tableData} />
       </div>
@@ -79,4 +79,4 @@ const Customer = () => {
   );
 };
 
-export default Customer;
+export default User;

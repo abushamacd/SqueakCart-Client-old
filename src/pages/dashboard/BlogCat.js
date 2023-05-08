@@ -82,7 +82,7 @@ const BlogCat = () => {
             <form action="">
               <div className="my-4">
                 <label htmlFor="blogName" className=" font-bold text-sm">
-                  Blog Title
+                  Category Name
                 </label>
                 <input
                   placeholder="Blog Category"

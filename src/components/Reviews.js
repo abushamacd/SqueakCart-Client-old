@@ -6,7 +6,7 @@ import ReactStars from "react-rating-stars-component";
 
 const Reviews = () => {
   const fakeDataUrl =
-    "https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo";
+    "https://randomuser.me/api/?results=20&inc=name,gender,email,id,nat,picture&noinfo";
   const ContainerHeight = 400;
   const [data, setData] = useState([]);
   const appendData = () => {
@@ -38,8 +38,8 @@ const Reviews = () => {
         itemKey="email"
         onScroll={onScroll}
       >
-        {(item) => (
-          <List.Item key={item.email}>
+        {(item, index) => (
+          <List.Item key={index}>
             <List.Item.Meta
               avatar={<Avatar src={item.picture.large} />}
               title={<a href="https://ant.design">{item.name.last}</a>}

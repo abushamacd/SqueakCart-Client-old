@@ -1,7 +1,21 @@
 import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Button, Layout, Menu, theme, Typography, Badge } from "antd";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+import {
+  Button,
+  Layout,
+  Menu,
+  theme,
+  Typography,
+  Badge,
+  Breadcrumb,
+  Dropdown,
+  Space,
+} from "antd";
 import { useState } from "react";
 import {
   MdDashboard,
@@ -12,7 +26,6 @@ import {
 } from "react-icons/md";
 import {
   FaShoppingCart,
-  FaUserPlus,
   FaUserCircle,
   FaCartPlus,
   FaUserTag,
@@ -20,13 +33,7 @@ import {
 } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
 import { SiBrandfolder } from "react-icons/si";
-import {
-  TbBrandAirtable,
-  TbBrandGoogleBigQuery,
-  TbCategory,
-} from "react-icons/tb";
-import { AiOutlineBgColors } from "react-icons/ai";
-import { BiPurchaseTagAlt } from "react-icons/bi";
+import { TbBrandGoogleBigQuery, TbCategory } from "react-icons/tb";
 
 const { Title, Text } = Typography;
 
@@ -37,6 +44,28 @@ const DBLayout = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const pathname = window.location.pathname.split("/");
+
+  // dropdown
+  const items = [
+    {
+      key: "1",
+      label: (
+        <a rel="noopener noreferrer" href="https://www.antgroup.com">
+          Profile
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a rel="noopener noreferrer" href="https://www.antgroup.com">
+          Sign Out
+        </a>
+      ),
+    },
+  ];
   return (
     <Layout className="h-screen ">
       <Sider
@@ -99,48 +128,19 @@ const DBLayout = () => {
                   label: "Add Product",
                 },
                 {
-                  key: "color-list",
+                  key: "color",
                   icon: <MdColorLens size={18} />,
-                  label: "Color List",
+                  label: "Color",
                 },
                 {
-                  key: "add-color",
-                  icon: <AiOutlineBgColors size={18} />,
-                  label: "Add Color",
+                  key: "category",
+                  icon: <TbCategory size={18} />,
+                  label: "Catagories",
                 },
-              ],
-            },
-            {
-              key: "brand",
-              icon: <SiBrandfolder size={18} />,
-              label: "Brands",
-              children: [
                 {
-                  key: "brand-list",
+                  key: "brand",
                   icon: <SiBrandfolder size={18} />,
-                  label: "Brand List",
-                },
-                {
-                  key: "add-brand",
-                  icon: <TbBrandAirtable size={18} />,
-                  label: "Add Brand",
-                },
-              ],
-            },
-            {
-              key: "category",
-              icon: <SiBrandfolder size={18} />,
-              label: "Categories",
-              children: [
-                {
-                  key: "category-list",
-                  icon: <SiBrandfolder size={18} />,
-                  label: "Category List",
-                },
-                {
-                  key: "add-category",
-                  icon: <TbBrandAirtable size={18} />,
-                  label: "Add Category",
+                  label: "Brands",
                 },
               ],
             },
@@ -148,18 +148,6 @@ const DBLayout = () => {
               key: "order",
               icon: <MdSell size={18} />,
               label: "Orders",
-              children: [
-                {
-                  key: "order-list",
-                  icon: <MdSell size={18} />,
-                  label: "Order List",
-                },
-                {
-                  key: "add-order",
-                  icon: <BiPurchaseTagAlt size={18} />,
-                  label: "Add Order",
-                },
-              ],
             },
             {
               key: "blog",
@@ -184,21 +172,9 @@ const DBLayout = () => {
               ],
             },
             {
-              key: "user",
+              key: "user-list",
               icon: <FaUserCircle size={18} />,
               label: "Users",
-              children: [
-                {
-                  key: "user-list",
-                  icon: <MdOutlineList size={18} />,
-                  label: "User List",
-                },
-                {
-                  key: "add-user",
-                  icon: <FaUserPlus size={18} />,
-                  label: "Add User",
-                },
-              ],
             },
             {
               key: "enquery",
@@ -231,31 +207,60 @@ const DBLayout = () => {
               <MdNotificationsActive size={24} />
             </Badge>
 
-            <div className="flex justify-center items-center gap-1">
-              <div className="avatar">
-                <div className="w-10 rounded-md">
-                  <img
-                    alt="user"
-                    src="https://imglarger.com/Images/before-after/ai-image-enlarger-1-before-2.jpg"
-                  />
+            <Dropdown
+              menu={{
+                items,
+              }}
+            >
+              <a onClick={(e) => e.preventDefault()}>
+                <div className="flex justify-center items-center gap-1">
+                  <div className="avatar">
+                    <div className="w-10 rounded-md">
+                      <img
+                        alt="user"
+                        src="https://imglarger.com/Images/before-after/ai-image-enlarger-1-before-2.jpg"
+                      />
+                    </div>
+                  </div>
+                  <div className="admin">
+                    <Title level={5}>Admin Name</Title>
+                    <Text>contact@imshama.com</Text>
+                  </div>
                 </div>
-              </div>
-              <div className="admin">
-                <Title level={5}>Admin Name</Title>
-                <Text>contact@imshama.com</Text>
-              </div>
-            </div>
+              </a>
+            </Dropdown>
           </div>
         </Header>
         <Content
           className="rounded-lg overflow-auto"
           style={{
-            margin: "24px 16px",
-            padding: 24,
+            margin: "0px 16px",
+            padding: 20,
             minHeight: 280,
             background: colorBgContainer,
           }}
         >
+          <Breadcrumb
+            className="mb-[20px]"
+            items={[
+              {
+                href: "/admin",
+                title: <HomeOutlined />,
+              },
+              {
+                href: `${window.location.pathname}`,
+                title: (
+                  <>
+                    <span className="capitalize">
+                      {pathname[2]
+                        ? pathname[2].replace("-", " ")
+                        : pathname[1]}
+                    </span>
+                  </>
+                ),
+              },
+            ]}
+          />
           <Outlet />
         </Content>
       </Layout>

@@ -3,7 +3,7 @@ import { Typography, Space, Table, Tag } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const CatList = () => {
+const Color = () => {
   const { Title } = Typography;
   const columns = [
     {
@@ -68,24 +68,24 @@ const CatList = () => {
   ];
   return (
     <div>
-      <Title level={3}>Product Category</Title>
+      <Title level={3}>Product Color</Title>
       <div className="blog md:flex justify-between mt-[20px]">
         <div className="md:w-[70%] recent_order overflow-auto  bg-white box_shadow rounded-lg p-[20px] mb-[20px] md:mb-[0px]  ">
           <Title className="capitalize" level={4}>
-            Category List
+            Color List
           </Title>
           <Table className="mt-4" columns={columns} dataSource={tableData} />
         </div>
         <div className="md:w-[28%]">
           <div className="visibility bg-white box_shadow p-[20px] rounded-lg">
-            <Title level={4}>Add New Category</Title>
+            <Title level={4}>Add New Color</Title>
             <form action="">
               <div className="my-4">
                 <label htmlFor="blogName" className=" font-bold text-sm">
-                  Category Name
+                  Color Code
                 </label>
                 <input
-                  placeholder="Product Category"
+                  placeholder="Color Hex Code"
                   type="text"
                   id="blogName"
                   name="blogName"
@@ -106,4 +106,4 @@ const CatList = () => {
   );
 };
 
-export default CatList;
+export default Color;

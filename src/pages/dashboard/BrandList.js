@@ -68,12 +68,39 @@ const BrandList = () => {
   ];
   return (
     <div>
-      <Title level={3}>Brand List</Title>
-      <div className="recent_order mt-[20px] overflow-auto bg-white box_shadow rounded-lg p-[20px] mb-[20px] md:mb-[0px] ">
-        <Title className="capitalize" level={5}>
-          recent orders
-        </Title>
-        <Table columns={columns} dataSource={tableData} />
+      <Title level={3}>Product Brands</Title>
+      <div className="blog md:flex justify-between mt-[20px]">
+        <div className="md:w-[70%] recent_order overflow-auto  bg-white box_shadow rounded-lg p-[20px] mb-[20px] md:mb-[0px]  ">
+          <Title className="capitalize" level={4}>
+            Brand List
+          </Title>
+          <Table className="mt-4" columns={columns} dataSource={tableData} />
+        </div>
+        <div className="md:w-[28%]">
+          <div className="visibility bg-white box_shadow p-[20px] rounded-lg">
+            <Title level={4}>Add New Brand</Title>
+            <form action="">
+              <div className="my-4">
+                <label htmlFor="blogName" className=" font-bold text-sm">
+                  Brand Name
+                </label>
+                <input
+                  placeholder="Product Brand"
+                  type="text"
+                  id="blogName"
+                  name="blogName"
+                  className="w-full bg-white rounded border border-gray-300 outline-none text-gray-700 py-1 px-3 mt-2 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+              <button
+                type="submit"
+                className="first_button rounded-md px-5 py-1 text-sm text-white uppercase"
+              >
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

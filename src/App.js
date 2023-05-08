@@ -25,9 +25,6 @@ import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
 import DBLayout from "./components/DBLayout";
 import Dashboard from "./pages/dashboard/Dashboard";
-import AdminLogin from "./pages/dashboard/AdminLogin";
-import AdminReset from "./pages/dashboard/AdminReset";
-import AdminForget from "./pages/dashboard/AdminForget";
 import Enquery from "./pages/dashboard/Enquery";
 import BlogList from "./pages/dashboard/BlogList";
 import BlogCat from "./pages/dashboard/BlogCat";
@@ -38,6 +35,8 @@ import Customer from "./pages/dashboard/Customer";
 import ProductList from "./pages/dashboard/ProductList";
 import AddProduct from "./pages/dashboard/AddProduct";
 import AddBlog from "./pages/dashboard/AddBlog";
+import Color from "./pages/dashboard/Color";
+import User from "./pages/dashboard/User";
 
 function App() {
   return (
@@ -66,17 +65,16 @@ function App() {
             <Route path="shipping-policy" element={<ShippingPolicy />} />
             <Route path="term-condition" element={<TermAndCondition />} />
           </Route>
-          {/* <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-reset" element={<AdminReset />} />
-          <Route path="/admin-forget" element={<AdminForget />} /> */}
           <Route path="/admin" element={<DBLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="enquery" element={<Enquery />} />
             <Route path="blog-list" element={<BlogList />} />
             <Route path="blog-cat" element={<BlogCat />} />
-            <Route path="order-list" element={<OrderList />} />
-            <Route path="category-list" element={<CatList />} />
-            <Route path="brand-list" element={<BrandList />} />
+            <Route path="order" element={<OrderList />} />
+            <Route path="category" element={<CatList />} />
+            <Route path="color" element={<Color />} />
+            <Route path="brand" element={<BrandList />} />
+            <Route path="user-list" element={<User />} />
             <Route path="customer" element={<Customer />} />
             <Route path="product-list" element={<ProductList />} />
             <Route path="add-product" element={<AddProduct />} />
