@@ -14,7 +14,6 @@ import {
   Badge,
   Breadcrumb,
   Dropdown,
-  Space,
 } from "antd";
 import { useState } from "react";
 import {
@@ -212,22 +211,20 @@ const DBLayout = () => {
                 items,
               }}
             >
-              <a onClick={(e) => e.preventDefault()}>
-                <div className="flex justify-center items-center gap-1">
-                  <div className="avatar">
-                    <div className="w-10 rounded-md">
-                      <img
-                        alt="user"
-                        src="https://imglarger.com/Images/before-after/ai-image-enlarger-1-before-2.jpg"
-                      />
-                    </div>
-                  </div>
-                  <div className="admin">
-                    <Title level={5}>Admin Name</Title>
-                    <Text>contact@imshama.com</Text>
+              <div className="flex justify-center items-center gap-1">
+                <div className="avatar">
+                  <div className="w-10 rounded-md">
+                    <img
+                      alt="user"
+                      src="https://imglarger.com/Images/before-after/ai-image-enlarger-1-before-2.jpg"
+                    />
                   </div>
                 </div>
-              </a>
+                <div className="admin">
+                  <Title level={5}>Admin Name</Title>
+                  <Text>contact@imshama.com</Text>
+                </div>
+              </div>
             </Dropdown>
           </div>
         </Header>
