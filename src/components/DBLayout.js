@@ -20,7 +20,11 @@ import {
 } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
 import { SiBrandfolder } from "react-icons/si";
-import { TbBrandAirtable, TbBrandGoogleBigQuery } from "react-icons/tb";
+import {
+  TbBrandAirtable,
+  TbBrandGoogleBigQuery,
+  TbCategory,
+} from "react-icons/tb";
 import { AiOutlineBgColors } from "react-icons/ai";
 import { BiPurchaseTagAlt } from "react-icons/bi";
 
@@ -164,7 +168,7 @@ const DBLayout = () => {
               children: [
                 {
                   key: "blog-list",
-                  icon: <FaBlog size={18} />,
+                  icon: <MdOutlineList size={18} />,
                   label: "Blog List",
                 },
                 {
@@ -173,14 +177,9 @@ const DBLayout = () => {
                   label: "Add Blog",
                 },
                 {
-                  key: "blog-cat-list",
-                  icon: <FaBlog size={18} />,
-                  label: "Blog Catagory List",
-                },
-                {
-                  key: "add-blog-category-list",
-                  icon: <ImBlog size={18} />,
-                  label: "Add Blog Catagory List",
+                  key: "blog-cat",
+                  icon: <TbCategory size={18} />,
+                  label: "Blog Category",
                 },
               ],
             },

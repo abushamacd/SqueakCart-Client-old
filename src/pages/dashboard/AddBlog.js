@@ -68,16 +68,17 @@ const AddBlog = () => {
           Save
         </button>
       </div>
-      <div className="md:flex justify-between mt-[20px]">
+      <div className="md:flex justify-between mt-[20px] blog">
         <div className="bg-white box_shadow p-[20px] rounded-lg  md:w-[70%] md:mb-0 mb-[20px] ">
           <Title level={4}>Blog Details</Title>
-          <form className="mt-4 blog" action="">
+          <form className="mt-4" action="">
             {/* name */}
             <div className="mb-4">
               <label htmlFor="blogName" className=" font-bold text-sm">
                 Blog Title
               </label>
               <input
+                placeholder="Blog Title"
                 type="text"
                 id="blogName"
                 name="blogName"

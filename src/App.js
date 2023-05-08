@@ -30,7 +30,7 @@ import AdminReset from "./pages/dashboard/AdminReset";
 import AdminForget from "./pages/dashboard/AdminForget";
 import Enquery from "./pages/dashboard/Enquery";
 import BlogList from "./pages/dashboard/BlogList";
-import BlogCatList from "./pages/dashboard/BlogCatList";
+import BlogCat from "./pages/dashboard/BlogCat";
 import OrderList from "./pages/dashboard/OrderList";
 import CatList from "./pages/dashboard/CatList";
 import BrandList from "./pages/dashboard/BrandList";
@@ -66,14 +66,14 @@ function App() {
             <Route path="shipping-policy" element={<ShippingPolicy />} />
             <Route path="term-condition" element={<TermAndCondition />} />
           </Route>
-          <Route path="/admin-login" element={<AdminLogin />} />
+          {/* <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-reset" element={<AdminReset />} />
-          <Route path="/admin-forget" element={<AdminForget />} />
+          <Route path="/admin-forget" element={<AdminForget />} /> */}
           <Route path="/admin" element={<DBLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="enquery" element={<Enquery />} />
             <Route path="blog-list" element={<BlogList />} />
-            <Route path="blog-cat-list" element={<BlogCatList />} />
+            <Route path="blog-cat" element={<BlogCat />} />
             <Route path="order-list" element={<OrderList />} />
             <Route path="category-list" element={<CatList />} />
             <Route path="brand-list" element={<BrandList />} />
