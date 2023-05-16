@@ -2,9 +2,9 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import QuickView from "../components/QuickView";
 
 const FeaturedCollection = () => {
-  const numbers = [1, 2, 3, 4, 5, 6];
   var settings = {
     dots: false,
     infinite: true,
@@ -37,6 +37,8 @@ const FeaturedCollection = () => {
       },
     ],
   };
+  const numbers = [1, 2, 3, 4, 5, 6];
+
   return (
     <section className="featured_collection_section rounded-xl section_gap">
       <div className="section_heading">
@@ -67,13 +69,13 @@ const FeaturedCollection = () => {
                     alt=""
                   />
                 </Link>
-                <Link to="/">
+                <label htmlFor="my-modal-5">
                   <img
                     className="duration-300 bg-white h-[25px] w-[25px] rounded-full p-[5px] "
                     src="/images/view.svg"
                     alt=""
                   />
-                </Link>
+                </label>
                 <Link to="/">
                   <img
                     className="duration-300 bg-white h-[25px] w-[25px] rounded-full p-[5px] "
@@ -118,6 +120,7 @@ const FeaturedCollection = () => {
           </div>
         ))}
       </Slider>
+      <QuickView />
     </section>
   );
 };

@@ -658,6 +658,10 @@ span.article,
   background-color: #fff !important;
 }
 
+.quick_view .slick-arrow {
+  top: 45% !important;
+}
+
 /*=============== ----Dashboard----
 ===============*/
 
