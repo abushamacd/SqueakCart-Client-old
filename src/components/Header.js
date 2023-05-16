@@ -1,25 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { BsSearch, BsCaretDownFill } from "react-icons/bs";
 import { HiMenuAlt1 } from "react-icons/hi";
+import { RxCross1 } from "react-icons/rx";
+import Annuncement from "./Annuncement";
+import {
+  FiHeart,
+  FiPhoneCall,
+  FiSearch,
+  FiShoppingCart,
+  FiUser,
+} from "react-icons/fi";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 const Header = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+
   return (
     <header className={``}>
+      {/* Search bar */}
+      <div
+        id="serach_bar"
+        class={`serach_bar ${
+          openSearch && "active"
+        } md:px-[70px] px-[20px] h-[105px] flex justify-between items-center absolute bg-[#131921] z-[999] left-0 top-0 w-full`}
+      >
+        <form class="flex flex-row-reverse" action="">
+          <input
+            type="text"
+            class="text-[25px] border-0 rounded-md p-1 focus:outline-none text-gray-500 md:w-[1060px] w-[260px]"
+            name="search"
+            id="serach"
+            placeholder="Search our store"
+          />
+          <button type="submit" class="md:mr-[50px] mr-[30px]">
+            <FiSearch size="20" color="#fff" />
+          </button>
+        </form>
+        <RxCross1
+          size="20"
+          onClick={() => setOpenSearch(!openSearch)}
+          color="#fff"
+        />
+      </div>
+
       <div className="header_top py-1 ">
-        <div className="layout flex justify-between text-center  md:flex-row flex-col px-[20px]">
-          <div className="">
-            <p className="capitalize text-white text-[14px] mb-0 ">
-              Free shipping over $100 & free returns
-            </p>
-          </div>
-          <div className="hidden md:block">
-            <p className="capitalize text-white text-[14px] mb-0 ">
-              Helpline:
-              <a className="text-white" href="tel:+019 0000 0000">
-                +019 0000 0000
-              </a>
-            </p>
+        <div className={`layout text-center px-[20px] py-[5px]`}>
+          <div class="announcement font-bold text-sm">
+            <Annuncement />
           </div>
         </div>
       </div>
@@ -27,10 +56,76 @@ const Header = () => {
         <div className="header_middle py-2">
           <div className="layout px-[20px]">
             <div className="flex items-center justify-between gap-[20px]">
-              <div className="logo">
-                {/* <h2>
-                  <Link to="/" className="text-white text-2xl">SqueakCart</Link>
-                </h2> */}
+              <div className="help_Admin md:w-[20%] hidden md:block">
+                {isAdmin ? (
+                  <div className="">
+                    <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
+                      Dashboard
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-[10px] text-white duration-300 hover:text-[#38b5fe]">
+                    <FiPhoneCall size="20" />
+                    <div className="text-[13px]">
+                      <p>+880 19 8726 8375</p>
+                      <p>assiddik001@gmail.com</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {!isAdmin && (
+                <div className="catagories block md:hidden">
+                  <div className="catagory_menu">
+                    <div className="dropdown">
+                      <label
+                        tabIndex={0}
+                        className="btn btn-link text-white no-underline px-0 hover:no-underline "
+                      >
+                        <p className="block md:hidden">
+                          <HiMenuAlt1 size="20" />
+                        </p>
+                      </label>
+                      <ul
+                        tabIndex={0}
+                        className="menu menu-compact top-[65px] rounded-lg dropdown-content p-2 shadow bg-base-100 w-52"
+                      >
+                        <li>
+                          <Link to="/">Home</Link>
+                        </li>
+                        <li onClick={() => setIsOpen(!isOpen)} className="">
+                          <div className="flex justify-between">
+                            <Link to="/product">Store</Link>
+                            {isOpen ? (
+                              <FaAngleUp color="#fff" />
+                            ) : (
+                              <FaAngleDown color="#fff" />
+                            )}
+                          </div>
+                        </li>
+                        {isOpen && (
+                          <ul className="mobile_dropdown ml-[25px]">
+                            <li className="">item 1</li>
+                            <li className="">item 1</li>
+                            <li className="">item 1</li>
+                            <li className="">item 1</li>
+                          </ul>
+                        )}
+                        <li className="block md:hidden">
+                          <Link to="/blogs">Blogs</Link>
+                        </li>
+                        <li className="block md:hidden">
+                          <Link to="/contact">Contact Us</Link>
+                        </li>
+                        <li className="block md:hidden">
+                          <Link to="/about">About Us</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="logo flex justify-center">
                 <Link to="/" className="text-white text-2xl">
                   <img
                     className="md:w-[180px] w-[150px]"
@@ -39,148 +134,229 @@ const Header = () => {
                   />
                 </Link>
               </div>
-              <div className="search hidden md:block">
-                <div className="form-control">
-                  <label className="input-group">
-                    <input
-                      type="text"
-                      placeholder="Search product....."
-                      className="w-[500px] text-black input rounded input-bordered h-[2rem] bg-white "
-                    />
-                    <span>
-                      <BsSearch color="#fff" className="text-[20px]" />
-                    </span>
-                  </label>
+
+              <div className="action_area md:w-[20%] flex justify-between md:gap-[20px] gap-[5px]">
+                <div className="myaccount flex flex-col items-center justify-center text-white duration-300 hover:text-[#38b5fe]">
+                  <FiUser size="20" />
+                  <p className="text-[13px] hidden md:block">My Account</p>
                 </div>
-              </div>
-              <div className="">
-                <div className="header_middle_links flex justify-between md:gap-[20px] gap-[10px]">
-                  <div className="">
-                    <Link to="/compare" className="text-white">
-                      <div className="flex items-center gap-[10px] ">
-                        <img
-                          className="w-[25px] h-[25px]"
-                          src="/images/compare.svg"
-                          alt="compare"
-                        />
-                        <p className="hidden md:block capitalize mb-0 text-[14px] ">
-                          compare <br /> producs
-                        </p>
-                      </div>
-                    </Link>
+                <div
+                  onClick={() => setOpenSearch(!openSearch)}
+                  className="serach flex flex-col items-center justify-center text-white duration-300 hover:text-[#38b5fe]"
+                >
+                  <FiSearch size="20" />
+                  <p className="text-[13px] hidden md:block">Search</p>
+                </div>
+                <div className="wishlist flex flex-col items-center justify-center text-white duration-300 hover:text-[#38b5fe] relative">
+                  <FiHeart size="20" />
+                  <p className="text-[13px] hidden md:block">Wishlist</p>
+                  <div className="bg-[#38b5fe] badge badge-sm absolute text-[12px] top-[-10px] right-[-10px] md:right-0">
+                    1
                   </div>
-                  <div className="">
-                    <Link to="/wishlist" className="text-white">
-                      <div className="flex items-center gap-[10px]">
-                        <img
-                          className="w-[25px] h-[25px]"
-                          src="/images/wishlist.svg"
-                          alt="wishlist"
-                        />
-                        <p className="hidden md:block capitalize mb-0 text-[14px] ">
-                          Fevourite <br /> wishlist
-                        </p>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="">
-                    <Link className=" text-white">
-                      <div className="flex items-center gap-[10px]">
-                        <img
-                          className="w-[25px] h-[25px]"
-                          src="/images/user.svg"
-                          alt="user"
-                        />
-                        <p className="hidden md:block capitalize mb-0 text-[14px] ">
-                          Log in <br /> my account
-                        </p>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="">
-                    <Link to="cart" className=" text-white">
-                      <div className="flex relative items-center md:gap-[10px]">
-                        <img
-                          className="w-[25px] h-[25px]"
-                          src="images/cart.svg"
-                          alt="cart"
-                        />
-                        <div className="flex flex-col justify-center">
-                          <span className="md:static absolute right-[-10px] top-[-5px] badge badge-sm text-black bg-white text-[14px]">
-                            0
-                          </span>
-                          <p className="hidden md:block text-[14px]">$ 500</p>
-                        </div>
-                      </div>
-                    </Link>
+                </div>
+                <div className="cart flex flex-col items-center justify-center text-white duration-300 hover:text-[#38b5fe] relative">
+                  <FiShoppingCart size="20" />
+                  <p className="text-[13px] hidden md:block">My Cart</p>
+                  <div className="bg-[#38b5fe] badge badge-sm absolute text-[12px] top-[-10px] right-[-10px] md:right-0">
+                    1
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="header_bottom py-1">
-          <div className="layout">
-            <div className="menu_area flex items-center ">
-              <div className="catagories">
-                <div className="catagory_menu">
-                  <div className="dropdown">
-                    <label
-                      tabIndex={0}
-                      className="btn btn-link text-white no-underline hover:no-underline "
-                    >
-                      <p className="catagory_menu_btn hidden md:flex justify-center items-center gap-[10px] ">
-                        <span className="">show catagories</span>{" "}
-                        <BsCaretDownFill />
-                      </p>
-                      <p className="block md:hidden">
-                        <HiMenuAlt1 />
-                      </p>
-                    </label>
-                    <ul
-                      tabIndex={0}
-                      className="menu menu-compact dropdown-content left-[20px] p-2 shadow bg-base-100 rounded w-52"
-                    >
-                      <li>
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li>
-                        <Link to="/product">Store</Link>
-                      </li>
-                      <li className="block md:hidden">
-                        <Link to="/blogs">Blogs</Link>
-                      </li>
-                      <li className="block md:hidden">
-                        <Link to="/contact">Contact Us</Link>
-                      </li>
-                      <li className="block md:hidden">
-                        <Link to="/about">About Us</Link>
-                      </li>
-                    </ul>
+
+        {isAdmin && (
+          <div className="header_bottom  block md:hidden py-1 px-[20px]">
+            <div className="layout">
+              <div className="menu_area my-1 flex justify-between md:justify-center items-center ">
+                <div className="catagories block md:hidden">
+                  <div className="catagory_menu">
+                    <div className="dropdown">
+                      <label
+                        tabIndex={0}
+                        className="btn btn-link text-white no-underline px-0 hover:no-underline "
+                      >
+                        <p className="block md:hidden">
+                          <HiMenuAlt1 size="20" />
+                        </p>
+                      </label>
+                      <ul
+                        tabIndex={0}
+                        className="menu menu-compact top-[65px] rounded-lg dropdown-content p-2 shadow bg-base-100 w-52"
+                      >
+                        <li>
+                          <Link to="/">Home</Link>
+                        </li>
+                        <li onClick={() => setIsOpen(!isOpen)} className="">
+                          <div className="flex justify-between">
+                            <Link to="/product">Store</Link>
+                            {isOpen ? (
+                              <FaAngleUp color="#fff" />
+                            ) : (
+                              <FaAngleDown color="#fff" />
+                            )}
+                          </div>
+                        </li>
+                        {isOpen && (
+                          <ul className="mobile_dropdown ml-[25px]">
+                            <li className="">item 1</li>
+                            <li className="">item 1</li>
+                            <li className="">item 1</li>
+                            <li className="">item 1</li>
+                          </ul>
+                        )}
+                        <li className="block md:hidden">
+                          <Link to="/blogs">Blogs</Link>
+                        </li>
+                        <li className="block md:hidden">
+                          <Link to="/contact">Contact Us</Link>
+                        </li>
+                        <li className="block md:hidden">
+                          <Link to="/about">About Us</Link>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+                <div className="md:hidden block">
+                  {isAdmin && (
+                    <div className="">
+                      <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
+                        Dashboard
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="mainmenu hidden md:flex items-center gap-[10px]">
+            </div>
+          </div>
+        )}
+        <div className="header_bottom md:block hidden py-2 px-[20px]">
+          <div className="layout">
+            <div className="menu_area my-1 flex justify-between md:justify-center items-center ">
+              <div class="mainmenu md:flex items-center gap-[10px]">
                 <div className="flex flex-wrap md:justify-start justify-center items-center gap-[15px]">
                   <NavLink to="/">Home</NavLink>
-                  <NavLink to="/product">Store</NavLink>
+                  <ul>
+                    <li class="mega-menu relative flex gap-1 text-[#000]">
+                      <NavLink class="" to="">
+                        Store
+                      </NavLink>
+                      <FaAngleDown color="#fff" />
+                      <div class="mega-menu-wrapper box_shadow rounded-[5px]">
+                        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-[40px] py-[50px] px-[90px] max-h-[400px] overflow-auto">
+                          <div class="single_menu">
+                            <img
+                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              src="./assets/images/banner/215112.jpg"
+                              alt=""
+                            />
+                            <div class="single_menu mt-[28px] px-[15px]">
+                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                                Collection Name
+                              </h4>
+                              <ul class="font_g_book text-[16px]">
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="single_menu">
+                            <img
+                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              src="./assets/images/banner/215112.jpg"
+                              alt=""
+                            />
+                            <div class="single_menu mt-[28px] px-[15px]">
+                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                                Collection Name
+                              </h4>
+                              <ul class="font_g_book text-[16px]">
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="single_menu">
+                            <img
+                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              src="./assets/images/banner/215112.jpg"
+                              alt=""
+                            />
+                            <div class="single_menu mt-[28px] px-[15px]">
+                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                                Collection Name
+                              </h4>
+                              <ul class="font_g_book text-[16px]">
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="single_menu">
+                            <img
+                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              src="./assets/images/banner/215112.jpg"
+                              alt=""
+                            />
+                            <div class="single_menu mt-[28px] px-[15px]">
+                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                                Collection Name
+                              </h4>
+                              <ul class="font_g_book text-[16px]">
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                                <li class="mb-[5px]">
+                                  {" "}
+                                  <NavLink to="">Items 1</NavLink>{" "}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                   <NavLink to="/blogs">Blogs</NavLink>
                   <NavLink to="/contact">Contact Us</NavLink>
                   <NavLink to="/about">About Us</NavLink>
-                </div>
-              </div>
-              <div className="search md:hidden block">
-                <div className="form-control">
-                  <label className="input-group">
-                    <input
-                      type="text"
-                      placeholder="Search product....."
-                      className=" text-black input rounded input-bordered h-[2rem] bg-white "
-                    />
-                    <span>
-                      <BsSearch color="#fff" className="text-[20px]" />
-                    </span>
-                  </label>
                 </div>
               </div>
             </div>

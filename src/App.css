@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
 :root {
   --color_131921: #131921;
   --color_3b4149: #3b4149;
@@ -16,8 +27,13 @@
   --color_ededed: #ededed;
   --color_bf4800: #bf4800;
   --color_777777: #777777;
+  --color_38b5fe: #38b5fe;
   --swiper-navigation-size: 12px !important;
   --swiper-theme-color: #000 !important;
+}
+
+.logo_color {
+  color: var(--color_38b5fe);
 }
 
 body {
@@ -146,10 +162,6 @@ input[type="number"]::-webkit-outer-spin-button {
   border-bottom: 1px solid var(--color_3b4149);
 }
 
-.search span {
-  background-color: var(--color_febd69);
-}
-
 .header_bottom {
   background-color: var(--color_232f3e);
 }
@@ -166,29 +178,11 @@ input[type="number"]::-webkit-outer-spin-button {
 .mainmenu a:hover,
 .catagory_menu .dropdown .catagory_menu_btn:hover {
   transition: all 0.3s;
-  opacity: 0.8;
-  color: #fff !important;
-}
-
-.catagory_menu .dropdown .catagory_menu_btn::before {
-  content: "";
-  background-image: url("./../public/images/menu.svg");
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-}
-
-.mainmenu::before {
-  display: inline-block;
-  content: "";
-  width: 2px;
-  height: 20px;
-  background-color: var(--color_3b4149);
+  /* opacity: 0.8;
+  color: #fff !important; */
 }
 
 .catagory_menu .dropdown .menu {
-  border-top-right-radius: 0 !important;
-  border-top-left-radius: 0 !important;
   background-color: var(--color_131921);
 }
 
@@ -216,6 +210,61 @@ input[type="number"]::-webkit-outer-spin-button {
 .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):active),
 .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):hover) {
   background-color: var(--color_232f3e);
+}
+
+/* new */
+/* Navigator */
+.mainmenu > ul > li:not(:last-child) {
+  margin-right: 60px;
+}
+
+.mainmenu li:hover ul {
+  opacity: 1;
+  visibility: visible;
+  top: 45px;
+}
+
+.mainmenu li.mega-menu {
+  position: static;
+}
+
+.mega-menu-wrapper {
+  left: 0;
+  right: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  background: var(--color_131921);
+  z-index: -1;
+  top: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.mainmenu li.mega-menu:hover .mega-menu-wrapper {
+  opacity: 1;
+  visibility: visible;
+  top: 160px;
+  z-index: 99;
+}
+
+.mainmenu a:hover,
+.mainmenu li:hover svg {
+  color: var(--color_38b5fe) !important;
+}
+
+.serach_bar {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.serach_bar.active {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
 }
 
 /* Footer */
