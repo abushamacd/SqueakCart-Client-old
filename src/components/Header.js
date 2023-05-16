@@ -22,19 +22,19 @@ const Header = () => {
       {/* Search bar */}
       <div
         id="serach_bar"
-        class={`serach_bar ${
+        className={`serach_bar ${
           openSearch && "active"
         } md:px-[70px] px-[20px] h-[105px] flex justify-between items-center absolute bg-[#131921] z-[999] left-0 top-0 w-full`}
       >
-        <form class="flex flex-row-reverse" action="">
+        <form className="flex flex-row-reverse" action="">
           <input
             type="text"
-            class="text-[25px] border-0 rounded-md p-1 focus:outline-none text-gray-500 md:w-[1060px] w-[260px]"
+            className="text-[25px] border-0 rounded-md p-1 focus:outline-none text-gray-500 md:w-[1060px] w-[260px]"
             name="search"
             id="serach"
             placeholder="Search our store"
           />
-          <button type="submit" class="md:mr-[50px] mr-[30px]">
+          <button type="submit" className="md:mr-[50px] mr-[30px]">
             <FiSearch size="20" color="#fff" />
           </button>
         </form>
@@ -47,7 +47,7 @@ const Header = () => {
 
       <div className="header_top py-1 ">
         <div className={`layout text-center px-[20px] py-[5px]`}>
-          <div class="announcement font-bold text-sm">
+          <div className="announcement font-bold text-sm">
             <Annuncement />
           </div>
         </div>
@@ -235,115 +235,115 @@ const Header = () => {
         <div className="header_bottom md:block hidden py-2 px-[20px]">
           <div className="layout">
             <div className="menu_area my-1 flex justify-between md:justify-center items-center ">
-              <div class="mainmenu md:flex items-center gap-[10px]">
+              <div className="mainmenu md:flex items-center gap-[10px]">
                 <div className="flex flex-wrap md:justify-start justify-center items-center gap-[15px]">
                   <NavLink to="/">Home</NavLink>
                   <ul>
-                    <li class="mega-menu relative flex gap-1 text-[#000]">
-                      <NavLink class="" to="">
+                    <li className="mega-menu relative flex gap-1 text-[#000]">
+                      <NavLink className="" to="">
                         Store
                       </NavLink>
                       <FaAngleDown color="#fff" />
-                      <div class="mega-menu-wrapper box_shadow rounded-[5px]">
-                        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-[40px] py-[50px] px-[90px] max-h-[400px] overflow-auto">
-                          <div class="single_menu">
+                      <div className="mega-menu-wrapper box_shadow rounded-[5px]">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-[40px] py-[50px] px-[90px] max-h-[400px] overflow-auto">
+                          <div className="single_menu">
                             <img
-                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              className="w-full h-[130px] rounded-[3px] object-cover"
                               src="./assets/images/banner/215112.jpg"
                               alt=""
                             />
-                            <div class="single_menu mt-[28px] px-[15px]">
-                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                            <div className="single_menu mt-[28px] px-[15px]">
+                              <h4 className="menu_title leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
-                              <ul class="font_g_book text-[16px]">
-                                <li class="mb-[5px]">
+                              <ul className="font_g_book text-[16px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
                               </ul>
                             </div>
                           </div>
-                          <div class="single_menu">
+                          <div className="single_menu">
                             <img
-                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              className="w-full h-[130px] rounded-[3px] object-cover"
                               src="./assets/images/banner/215112.jpg"
                               alt=""
                             />
-                            <div class="single_menu mt-[28px] px-[15px]">
-                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                            <div className="single_menu mt-[28px] px-[15px]">
+                              <h4 className="menu_title leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
-                              <ul class="font_g_book text-[16px]">
-                                <li class="mb-[5px]">
+                              <ul className="font_g_book text-[16px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
                               </ul>
                             </div>
                           </div>
-                          <div class="single_menu">
+                          <div className="single_menu">
                             <img
-                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              className="w-full h-[130px] rounded-[3px] object-cover"
                               src="./assets/images/banner/215112.jpg"
                               alt=""
                             />
-                            <div class="single_menu mt-[28px] px-[15px]">
-                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                            <div className="single_menu mt-[28px] px-[15px]">
+                              <h4 className="menu_title leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
-                              <ul class="font_g_book text-[16px]">
-                                <li class="mb-[5px]">
+                              <ul className="font_g_book text-[16px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
                               </ul>
                             </div>
                           </div>
-                          <div class="single_menu">
+                          <div className="single_menu">
                             <img
-                              class="w-full h-[130px] rounded-[3px] object-cover"
+                              className="w-full h-[130px] rounded-[3px] object-cover"
                               src="./assets/images/banner/215112.jpg"
                               alt=""
                             />
-                            <div class="single_menu mt-[28px] px-[15px]">
-                              <h4 class="menu_title leading-[29px] mb-[12px]">
+                            <div className="single_menu mt-[28px] px-[15px]">
+                              <h4 className="menu_title leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
-                              <ul class="font_g_book text-[16px]">
-                                <li class="mb-[5px]">
+                              <ul className="font_g_book text-[16px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
-                                <li class="mb-[5px]">
+                                <li className="mb-[5px]">
                                   {" "}
                                   <NavLink to="">Items 1</NavLink>{" "}
                                 </li>
