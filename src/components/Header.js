@@ -253,7 +253,7 @@ const Header = () => {
                               alt=""
                             />
                             <div className="single_menu mt-[28px] px-[15px]">
-                              <h4 className="menu_title leading-[29px] mb-[12px]">
+                              <h4 className="logo_color leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
                               <ul className="font_g_book text-[16px]">
@@ -279,7 +279,7 @@ const Header = () => {
                               alt=""
                             />
                             <div className="single_menu mt-[28px] px-[15px]">
-                              <h4 className="menu_title leading-[29px] mb-[12px]">
+                              <h4 className="logo_color leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
                               <ul className="font_g_book text-[16px]">
@@ -305,7 +305,7 @@ const Header = () => {
                               alt=""
                             />
                             <div className="single_menu mt-[28px] px-[15px]">
-                              <h4 className="menu_title leading-[29px] mb-[12px]">
+                              <h4 className="logo_color leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
                               <ul className="font_g_book text-[16px]">
@@ -331,7 +331,7 @@ const Header = () => {
                               alt=""
                             />
                             <div className="single_menu mt-[28px] px-[15px]">
-                              <h4 className="menu_title leading-[29px] mb-[12px]">
+                              <h4 className="logo_color leading-[29px] mb-[12px]">
                                 Collection Name
                               </h4>
                               <ul className="font_g_book text-[16px]">

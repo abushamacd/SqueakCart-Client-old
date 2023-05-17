@@ -8,7 +8,7 @@ const Banner = () => {
     infinite: true,
     autoplay: true,
     fade: true,
-    speed: 3000,
+    // speed: 3000,
     autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -39,7 +39,7 @@ const Banner = () => {
     ],
   };
   return (
-    <div className="hero_area layout md:px-[50px] p-[20px] md:py-[30px] flex md:flex-row flex-col md:gap-[30px] gap-[10px] h-[500px]">
+    <div className="hero_area layout md:px-[50px] p-[20px] md:py-[30px] flex md:flex-row flex-col md:gap-[30px] gap-[10px] md:h-[500px]">
       <div className="left_banner md:w-[70%] w-full">
         <Slider {...settings}>
           <div className="slider relative">
@@ -116,9 +116,9 @@ const Banner = () => {
           </div>
         </Slider>
       </div>
-      <div className="right_banner md:gap-[30px] gap-[10px] md:w-[30%] w-full flex flex-wrap">
+      <div className="right_banner md:gap-[30px] gap-[10px] md:w-[30%] w-full flex flex-col">
         {[1, 2].map((single) => (
-          <div key={single} className="side_banner md:w-full w-[48%] relative">
+          <div key={single} className="side_banner w-full relative">
             <img
               className="w-full h-[200px] rounded-xl object-cover"
               src="/images/catbanner-01.jpg"

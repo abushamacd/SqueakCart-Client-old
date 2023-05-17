@@ -48,7 +48,7 @@
   }
 
   .special_products_section .slick-arrow {
-    top: -3% !important;
+    top: -6% !important;
   }
   .product_inner:hover .action_bar {
     opacity: 1;
@@ -73,5 +73,12 @@
     z-index: 99;
     height: 100vh;
     overflow: scroll;
+  }
+
+  .quick_view .slick-arrow {
+    top: 45% !important;
+  }
+  .special_product_inner .slick-arrow {
+    top: 55% !important;
   }
 }
