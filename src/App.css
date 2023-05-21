@@ -32,6 +32,30 @@
   --swiper-theme-color: #000 !important;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color_131921);
+}
+
+p,
+span,
+option,
+input,
+select,
+textarea {
+  color: var(--color_232f3e);
+}
+
+input,
+select,
+textarea {
+  background-color: var(--color_f5f5f7);
+}
+
 .logo_color {
   color: var(--color_38b5fe);
 }
@@ -212,7 +236,6 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: var(--color_232f3e);
 }
 
-/* new */
 /* Navigator */
 .mainmenu > ul > li:not(:last-child) {
   margin-right: 60px;
@@ -265,6 +288,18 @@ input[type="number"]::-webkit-outer-spin-button {
   opacity: 1;
   visibility: visible;
   top: 0;
+}
+
+.action_area div p,
+.footer_info p {
+  color: #fff;
+  transition: 0.3s all;
+}
+
+.action_area div:hover p,
+.footer_middle h4,
+.footer_middle_accordion span {
+  color: var(--color_38b5fe);
 }
 
 /* Footer */

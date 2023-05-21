@@ -40,7 +40,7 @@ const QuickView = () => {
     <div className="quick_view">
       <input type="checkbox" id="my-modal-5" className="modal-toggle" />
       <div className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
+        <div className="modal-box w-11/12 max-w-5xl bg-gray-100">
           <label
             htmlFor="my-modal-5"
             className="btn btn-sm btn-circle absolute right-2 top-2"

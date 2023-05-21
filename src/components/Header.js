@@ -66,9 +66,13 @@ const Header = () => {
                 ) : (
                   <div className="flex items-center gap-[10px] text-white duration-300 hover:text-[#38b5fe]">
                     <FiPhoneCall size="20" />
-                    <div className="text-[13px]">
-                      <p>+880 19 8726 8375</p>
-                      <p>assiddik001@gmail.com</p>
+                    <div className="text-[13px] ">
+                      <p className="text-white duration-300 hover:text-[#38b5fe]">
+                        +880 19 8726 8375
+                      </p>
+                      <p className="text-white duration-300 hover:text-[#38b5fe]">
+                        assiddik001@gmail.com
+                      </p>
                     </div>
                   </div>
                 )}
@@ -82,7 +86,10 @@ const Header = () => {
                         className="btn btn-link text-white no-underline px-0 hover:no-underline "
                       >
                         <p className="block md:hidden">
-                          <HiMenuAlt1 size="20" />
+                          <HiMenuAlt1
+                            className="text-white duration-300 hover:text-[#38b5fe]"
+                            size="20"
+                          />
                         </p>
                       </label>
                       <ul
@@ -178,7 +185,10 @@ const Header = () => {
                         className="btn btn-link text-white no-underline px-0 hover:no-underline "
                       >
                         <p className="block md:hidden">
-                          <HiMenuAlt1 size="20" />
+                          <HiMenuAlt1
+                            className="text-white duration-300 hover:text-[#38b5fe]"
+                            size="20"
+                          />
                         </p>
                       </label>
                       <ul
