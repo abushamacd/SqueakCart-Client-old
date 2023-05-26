@@ -60,9 +60,11 @@ const Header = () => {
               <div className="help_Admin md:w-[20%] hidden md:block">
                 {user?.data?.role === "admin" ? (
                   <div className="">
-                    <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
-                      Dashboard
-                    </button>
+                    <Link to="/admin">
+                      <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
+                        Dashboard
+                      </button>
+                    </Link>
                   </div>
                 ) : (
                   <div className="flex items-center gap-[10px] text-white duration-300 hover:text-[#38b5fe]">
@@ -246,9 +248,11 @@ const Header = () => {
                 <div className="md:hidden block">
                   {user?.data?.role === "admin" && (
                     <div className="">
-                      <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
-                        Dashboard
-                      </button>
+                      <Link to="/admin">
+                        <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
+                          Dashboard
+                        </button>
+                      </Link>
                     </div>
                   )}
                 </div>
