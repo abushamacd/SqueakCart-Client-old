@@ -11,9 +11,10 @@ import {
   FiUser,
 } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { user } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
 
@@ -57,7 +58,7 @@ const Header = () => {
           <div className="layout px-[20px]">
             <div className="flex items-center justify-between gap-[20px]">
               <div className="help_Admin md:w-[20%] hidden md:block">
-                {isAdmin ? (
+                {user?.data?.role === "admin" ? (
                   <div className="">
                     <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
                       Dashboard
@@ -77,7 +78,7 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              {!isAdmin && (
+              {!user?.data?.role === "admin" && (
                 <div className="catagories block md:hidden">
                   <div className="catagory_menu">
                     <div className="dropdown">
@@ -143,9 +144,22 @@ const Header = () => {
               </div>
 
               <div className="action_area md:w-[20%] flex justify-between md:gap-[20px] gap-[5px]">
-                <div className="myaccount flex flex-col items-center justify-center text-white duration-300 hover:text-[#38b5fe]">
+                <div className="myaccount relative flex flex-col items-center justify-center text-white duration-300 hover:text-[#38b5fe]">
                   <FiUser size="20" />
                   <p className="text-[13px] hidden md:block">My Account</p>
+                  <div className="user_button absolute  z-50 top-[56px] w-[120px] py-[5px] px-[10px] rounded-md ">
+                    <ul className="text-center">
+                      <Link to="login">
+                        <li className="hover:border-b py-2">Sign In</li>
+                      </Link>
+                      <Link to="register">
+                        <li className="hover:border-b py-2">Sign Up</li>
+                      </Link>
+                      {/* <Link>
+                        <li className="a">Sign Out</li>
+                      </Link> */}
+                    </ul>
+                  </div>
                 </div>
                 <div
                   onClick={() => setOpenSearch(!openSearch)}
@@ -173,7 +187,7 @@ const Header = () => {
           </div>
         </div>
 
-        {isAdmin && (
+        {user?.data?.role === "admin" && (
           <div className="header_bottom  block md:hidden py-1 px-[20px]">
             <div className="layout">
               <div className="menu_area my-1 flex justify-between md:justify-center items-center ">
@@ -230,7 +244,7 @@ const Header = () => {
                   </div>
                 </div>
                 <div className="md:hidden block">
-                  {isAdmin && (
+                  {user?.data?.role === "admin" && (
                     <div className="">
                       <button className="bg-[#38b5fe] cursor-pointer duration-300 rounded-full py-[8px] px-[20px] font-medium text-black hover:bg-[#febd69]">
                         Dashboard

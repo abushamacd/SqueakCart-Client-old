@@ -98,13 +98,13 @@ const Dashboard = () => {
       dataIndex: "status",
       render: (_, { status }) => (
         <>
-          {status.map((s) => {
+          {status.map((s, index) => {
             let color = "green";
             if (s === "pending") {
               color = "volcano";
             }
             return (
-              <Tag color={color} key={s}>
+              <Tag color={color} key={index}>
                 {s.toUpperCase()}
               </Tag>
             );
@@ -130,7 +130,7 @@ const Dashboard = () => {
       status: ["pending"],
     },
     {
-      no: "1",
+      no: "2",
       name: "John Brown",
       product: 32,
       status: ["deliverd"],

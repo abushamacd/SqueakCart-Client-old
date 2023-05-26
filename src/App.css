@@ -291,7 +291,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .action_area div p,
-.footer_info p {
+.footer_info p,
+.ant-menu-title-content {
   color: #fff;
   transition: 0.3s all;
 }
@@ -300,6 +301,18 @@ input[type="number"]::-webkit-outer-spin-button {
 .footer_middle h4,
 .footer_middle_accordion span {
   color: var(--color_38b5fe);
+}
+
+.user_button {
+  background-color: var(--color_131921);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.myaccount:hover .user_button {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Footer */

@@ -52,11 +52,11 @@ function App() {
             <Route path="compare" element={<CompareProducts />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="login" element={<SignIn />} />
+            <Route path="register" element={<SignUp />} />
             <Route path="cart" element={<Cart />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="forget" element={<Forget />} />
             <Route path="change-password" element={<ChangePassword />} />
-            <Route path="register" element={<SignUp />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="faq" element={<Faqs />} />
