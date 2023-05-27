@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsArrowUpRight, BsArrowDownRight } from "react-icons/bs";
 import { MdDeleteForever } from "react-icons/md";
-import { Typography, Space, Table, Tag, Timeline } from "antd";
+import { Typography, Table, Timeline } from "antd";
 import { SmileOutlined } from "@ant-design/icons";
-
 import { Column } from "@ant-design/plots";
 import { Link } from "react-router-dom";
 import Traffic from "../../components/Traffic";
 import Reviews from "../../components/Reviews";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrders } from "../../features/order/orderSlice";
+import { FaRegEye } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 
 const Dashboard = () => {
   const { Title, Text } = Typography;
@@ -75,67 +78,47 @@ const Dashboard = () => {
     },
   };
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOrders());
+  }, [dispatch]);
+
+  const orders = useSelector((state) => state.order.orders);
   const columns = [
     {
-      title: "No.",
+      title: "SKU",
       dataIndex: "no",
       key: "no",
       render: (text) => <Link to="">{text}</Link>,
     },
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Product",
-      dataIndex: "product",
-      key: "product",
-    },
-    {
-      title: "Status",
-      key: "status",
-      dataIndex: "status",
-      render: (_, { status }) => (
-        <>
-          {status.map((s, index) => {
-            let color = "green";
-            if (s === "pending") {
-              color = "volcano";
-            }
-            return (
-              <Tag color={color} key={index}>
-                {s.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
+      sorter: (a, b) => a.title.length - b.title.length,
     },
     {
       title: "Action",
+      dataIndex: "action",
       key: "action",
-      render: (_, record) => (
-        <Space size="middle">
+    },
+  ];
+  const tableData = [];
+  for (let i = 0; i < orders?.data?.length; i++) {
+    tableData.push({
+      key: i + 1,
+      no: tableData.length + 1,
+      title: orders?.data[i]?.orderStatus,
+      action: (
+        <div className="flex gap-2">
+          <FaRegEye size={22} className="text-green-700" />
+          <FiEdit size={22} className="text-orange-400" />
           <MdDeleteForever size={22} className="text-red-500 " />
-        </Space>
+        </div>
       ),
-    },
-  ];
-  const tableData = [
-    {
-      no: "1",
-      name: "John Brown",
-      product: 32,
-      status: ["pending"],
-    },
-    {
-      no: "2",
-      name: "John Brown",
-      product: 32,
-      status: ["deliverd"],
-    },
-  ];
+    });
+  }
   return (
     <div>
       <Title level={3}>Dashboard</Title>
