@@ -6,8 +6,8 @@ const getUsers = async () => {
   return res.data;
 };
 
-const customerService = {
+const userService = {
   getUsers,
 };
 
-export default customerService;
+export default userService;

@@ -33,10 +33,11 @@ import {
 import { ImBlog } from "react-icons/im";
 import { SiBrandfolder } from "react-icons/si";
 import { TbBrandGoogleBigQuery, TbCategory } from "react-icons/tb";
-
-const { Title, Text } = Typography;
+import { useSelector } from "react-redux";
 
 const DBLayout = () => {
+  const { Title, Text } = Typography;
+  const { user } = useSelector((state) => state.auth);
   const { Header, Sider, Content } = Layout;
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
@@ -221,8 +222,10 @@ const DBLayout = () => {
                   </div>
                 </div>
                 <div className="admin">
-                  <Title level={5}>Admin Name</Title>
-                  <Text>contact@imshama.com</Text>
+                  <Title level={5} className="capitalize">
+                    {user?.data?.firstname + " " + user?.data?.lastname}{" "}
+                  </Title>
+                  <Text> {user?.data?.email} </Text>
                 </div>
               </div>
             </Dropdown>

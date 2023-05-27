@@ -3,7 +3,7 @@ import { Typography, Space, Table } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../features/customers/customerSlice";
+import { getUsers } from "../../features/user/userSlice";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const User = () => {
     dispatch(getUsers());
   }, [dispatch]);
 
-  const customer = useSelector((state) => state.customer.customers);
+  const user = useSelector((state) => state.user.users);
   const { Title } = Typography;
   const columns = [
     {
@@ -54,15 +54,15 @@ const User = () => {
     },
   ];
   const tableData = [];
-  for (let i = 0; i < customer?.data?.length; i++) {
-    if (customer?.data[i]?.role === "admin") {
+  for (let i = 0; i < user?.data?.length; i++) {
+    if (user?.data[i]?.role === "admin") {
       tableData.push({
         key: i + 1,
-        no: i + 1,
-        name: customer?.data[i]?.firstname + " " + customer?.data[i]?.lastname,
-        email: customer?.data[i]?.email,
-        phone: customer?.data[i]?.phone,
-        role: customer?.data[i]?.role,
+        no: tableData.length + 1,
+        name: user?.data[i]?.firstname + " " + user?.data[i]?.lastname,
+        email: user?.data[i]?.email,
+        phone: user?.data[i]?.phone,
+        role: user?.data[i]?.role,
       });
     }
   }
