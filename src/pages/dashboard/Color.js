@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { Typography, Space, Table, Tag } from "antd";
+import { Typography, Table } from "antd";
 import { MdDeleteForever } from "react-icons/md";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getColors } from "../../features/color/colorSlice";
 import { FaRegEye } from "react-icons/fa";
