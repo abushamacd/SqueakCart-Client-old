@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { Typography, Space, Table } from "antd";
+import { Typography, Table } from "antd";
 import { MdDeleteForever } from "react-icons/md";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../features/user/userSlice";
 import { FaRegEye } from "react-icons/fa";
@@ -64,7 +63,6 @@ const Customer = () => {
       });
     }
   }
-  console.log(tableData);
   return (
     <div>
       <Title level={3}>Customer List</Title>
