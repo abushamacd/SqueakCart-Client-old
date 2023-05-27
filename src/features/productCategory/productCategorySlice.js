@@ -21,7 +21,7 @@ export const getProductCategories = createAsyncThunk(
 );
 
 export const productCategorySlice = createSlice({
-  name: "brands",
+  name: "productCategory",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

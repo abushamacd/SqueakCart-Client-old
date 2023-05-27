@@ -14,7 +14,6 @@ const BlogList = () => {
   }, [dispatch]);
 
   const blogs = useSelector((state) => state.blog.blogs);
-  console.log(blogs);
   const { Title } = Typography;
   const columns = [
     {
