@@ -4,6 +4,8 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../features/user/userSlice";
+import { FaRegEye } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 
 const Customer = () => {
   const dispatch = useDispatch();
@@ -19,7 +21,6 @@ const Customer = () => {
       title: "No.",
       dataIndex: "no",
       key: "no",
-      render: (text) => <Link to="">{text}</Link>,
     },
     {
       title: "Name",
@@ -41,11 +42,7 @@ const Customer = () => {
     {
       title: "Action",
       key: "action",
-      render: (_, record) => (
-        <Space size="middle">
-          <MdDeleteForever size={22} className="text-red-500 " />
-        </Space>
-      ),
+      dataIndex: "action",
     },
   ];
   const tableData = [];
@@ -57,15 +54,23 @@ const Customer = () => {
         name: user?.data[i]?.firstname + " " + user?.data[i]?.lastname,
         email: user?.data[i]?.email,
         phone: user?.data[i]?.phone,
+        action: (
+          <div className="flex gap-2">
+            <FaRegEye size={22} className="text-green-700" />
+            <FiEdit size={22} className="text-orange-400" />
+            <MdDeleteForever size={22} className="text-red-500 " />
+          </div>
+        ),
       });
     }
   }
+  console.log(tableData);
   return (
     <div>
       <Title level={3}>Customer List</Title>
       <div className="recent_order mt-[20px] overflow-auto bg-white box_shadow rounded-lg p-[20px] mb-[20px] md:mb-[0px] ">
         <Title className="capitalize" level={4}>
-          Customer List
+          All Customers
         </Title>
         <Table className="mt-4" columns={columns} dataSource={tableData} />
       </div>

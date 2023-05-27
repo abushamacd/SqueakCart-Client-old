@@ -71,7 +71,7 @@ const User = () => {
       <Title level={3}>User List</Title>
       <div className="recent_order mt-[20px] overflow-auto bg-white box_shadow rounded-lg p-[20px] mb-[20px] md:mb-[0px] ">
         <Title className="capitalize" level={4}>
-          Admin Level User
+          All Users
         </Title>
         <Table className="mt-4" columns={columns} dataSource={tableData} />
       </div>
