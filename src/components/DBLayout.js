@@ -32,6 +32,7 @@ import {
 } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
 import { SiBrandfolder } from "react-icons/si";
+import { RiCouponFill } from "react-icons/ri";
 import { TbBrandGoogleBigQuery, TbCategory } from "react-icons/tb";
 import { useSelector } from "react-redux";
 
@@ -148,6 +149,11 @@ const DBLayout = () => {
               key: "order",
               icon: <MdSell size={18} />,
               label: "Orders",
+            },
+            {
+              key: "coupon",
+              icon: <RiCouponFill size={18} />,
+              label: "Coupons",
             },
             {
               key: "blog",

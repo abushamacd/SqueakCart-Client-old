@@ -37,6 +37,7 @@ import AddProduct from "./pages/dashboard/AddProduct";
 import AddBlog from "./pages/dashboard/AddBlog";
 import Color from "./pages/dashboard/Color";
 import User from "./pages/dashboard/User";
+import CouponList from "./pages/dashboard/couponList";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
             <Route path="blog-list" element={<BlogList />} />
             <Route path="blog-cat" element={<BlogCat />} />
             <Route path="order" element={<OrderList />} />
+            <Route path="coupon" element={<CouponList />} />
             <Route path="category" element={<CatList />} />
             <Route path="color" element={<Color />} />
             <Route path="brand" element={<BrandList />} />
