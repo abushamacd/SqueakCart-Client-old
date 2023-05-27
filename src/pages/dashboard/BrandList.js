@@ -15,7 +15,6 @@ const BrandList = () => {
   }, [dispatch]);
 
   const brands = useSelector((state) => state.brand.brands);
-  console.log(brands?.data);
   const { Title } = Typography;
   const columns = [
     {

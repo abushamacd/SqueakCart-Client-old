@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography, Space, Table, Tag } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductCategories } from "../../features/productCategory/productCategorySlice";
+import { FaRegEye } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 
 const CatList = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProductCategories());
+  }, [dispatch]);
+
+  const productCategories = useSelector(
+    (state) => state.productCategory.productCategories
+  );
   const { Title } = Typography;
   const columns = [
     {
       title: "No.",
       dataIndex: "no",
       key: "no",
-      render: (text) => <Link to="">{text}</Link>,
     },
     {
       title: "Name",
@@ -18,61 +30,33 @@ const CatList = () => {
       key: "name",
     },
     {
-      title: "Product",
-      dataIndex: "product",
-      key: "product",
-    },
-    {
-      title: "Status",
-      key: "status",
-      dataIndex: "status",
-      render: (_, { status }) => (
-        <>
-          {status.map((s) => {
-            let color = "green";
-            if (s === "pending") {
-              color = "volcano";
-            }
-            return (
-              <Tag color={color} key={s}>
-                {s.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    {
       title: "Action",
+      dataIndex: "action",
       key: "action",
-      render: (_, record) => (
-        <Space size="middle">
+    },
+  ];
+  const tableData = [];
+  for (let i = 0; i < productCategories?.data?.length; i++) {
+    tableData.push({
+      key: i + 1,
+      no: tableData.length + 1,
+      name: productCategories?.data[i]?.title,
+      action: (
+        <div className="flex gap-2">
+          <FaRegEye size={22} className="text-green-700" />
+          <FiEdit size={22} className="text-orange-400" />
           <MdDeleteForever size={22} className="text-red-500 " />
-        </Space>
+        </div>
       ),
-    },
-  ];
-  const tableData = [
-    {
-      no: "1",
-      name: "John Brown",
-      product: 32,
-      status: ["pending"],
-    },
-    {
-      no: "1",
-      name: "John Brown",
-      product: 32,
-      status: ["deliverd"],
-    },
-  ];
+    });
+  }
   return (
     <div>
       <Title level={3}>Product Category</Title>
       <div className="blog md:flex justify-between mt-[20px]">
         <div className="md:w-[70%] recent_order overflow-auto  bg-white box_shadow rounded-lg p-[20px] mb-[20px] md:mb-[0px]  ">
           <Title className="capitalize" level={4}>
-            Category List
+            All Categories
           </Title>
           <Table className="mt-4" columns={columns} dataSource={tableData} />
         </div>
