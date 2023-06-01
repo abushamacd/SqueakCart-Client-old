@@ -898,3 +898,12 @@ span.article,
 .blog .ql-editor {
   height: 300px !important;
 }
+.show_upload_images button {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show_upload_images div:hover button {
+  visibility: visible;
+  opacity: 1;
+}
