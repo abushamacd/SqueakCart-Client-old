@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Typography, Table } from "antd";
+import { Typography, Table, Select } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "../../features/enquire/enquireSlice";
@@ -42,6 +42,9 @@ const Enquery = () => {
       key: "action",
     },
   ];
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
   const tableData = [];
   for (let i = 0; i < contacts?.data?.length; i++) {
     tableData.push({
@@ -49,7 +52,20 @@ const Enquery = () => {
       no: tableData.length + 1,
       name: contacts?.data[i]?.name,
       email: contacts?.data[i]?.email,
-      status: contacts?.data[i]?.status,
+      status: (
+        <>
+          <Select
+            defaultValue="lucy"
+            style={{ width: 120 }}
+            onChange={handleChange}
+            options={[
+              { value: "jack", label: "Jack" },
+              { value: "lucy", label: "Lucy" },
+              { value: "Yiminghe", label: "yiminghe" },
+            ]}
+          />
+        </>
+      ),
       action: (
         <div className="flex gap-2">
           <FaRegEye size={22} className="text-green-700" />

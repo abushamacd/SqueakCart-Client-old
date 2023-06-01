@@ -30,6 +30,12 @@ const OrderList = () => {
       sorter: (a, b) => a.title.length - b.title.length,
     },
     {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      sorter: (a, b) => a.title.length - b.title.length,
+    },
+    {
       title: "Action",
       dataIndex: "action",
       key: "action",
@@ -40,7 +46,11 @@ const OrderList = () => {
     tableData.push({
       key: i + 1,
       no: tableData.length + 1,
-      title: orders?.data[i]?.orderStatus,
+      title:
+        orders?.data[i]?.orderby?.firstname +
+        " " +
+        orders?.data[i]?.orderby?.lastname,
+      email: orders?.data[i]?.orderby?.email,
       action: (
         <div className="flex gap-2">
           <FaRegEye size={22} className="text-green-700" />
