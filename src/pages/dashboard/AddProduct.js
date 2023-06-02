@@ -60,17 +60,18 @@ const AddProduct = () => {
     });
   });
 
-  const productImages = useSelector((state) => state.image.images.data);
+  const productImages = useSelector((state) => state.image.images);
   const proImages = useMemo(() => {
     const proImages = [];
     productImages?.forEach((img) => {
       proImages.push({
-        public_id: img.public_id,
-        url: img.url,
+        public_id: img[0].public_id,
+        url: img[0].url,
       });
     });
     return proImages;
   }, [productImages]);
+  // console.log("proImages", proImages);
 
   const tagOptions = [];
   tagOptions.push(
@@ -126,7 +127,7 @@ const AddProduct = () => {
     validationSchema: productSchema,
 
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
       dispatch(createProduct(values));
     },
   });
@@ -328,7 +329,7 @@ const AddProduct = () => {
           <div className="blog_picture mt-4 bg-white box_shadow p-[20px] rounded-lg">
             <Title level={4}>Product Picture</Title>
             <div className="show_upload_images mt-4 flex flex-wrap gap-[2%] ">
-              {productImages?.map((image, i) => (
+              {proImages?.map((image, i) => (
                 <div key={i} className="relative w-[48%]">
                   <button
                     onClick={() => dispatch(imageDelete(image.public_id))}

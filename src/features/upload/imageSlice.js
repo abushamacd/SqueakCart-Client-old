@@ -45,10 +45,10 @@ export const imageSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(imageUpload.fulfilled, (state, action) => {
+        state.images = [...state.images, action.payload.data];
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
-        state.images = action.payload;
       })
       .addCase(imageUpload.rejected, (state, action) => {
         state.isLoading = false;

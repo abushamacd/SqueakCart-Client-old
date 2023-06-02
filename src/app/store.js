@@ -13,6 +13,7 @@ import contactReducer from "../features/enquire/enquireSlice";
 import imageReducer from "../features/upload/imageSlice";
 
 export const store = configureStore({
+  // devTools: false,
   reducer: {
     auth: authReducer,
     user: userReducer,

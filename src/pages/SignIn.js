@@ -32,9 +32,7 @@ const SignIn = () => {
     },
   });
 
-  const { user, message, isSuccess, isError, isLoading } = useSelector(
-    (state) => state.auth
-  );
+  const { user, isSuccess, isError } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (!user == null || isSuccess) {
@@ -43,7 +41,7 @@ const SignIn = () => {
     } else if (isError) {
       toast.error("Login Failed");
     }
-  }, [user, isSuccess, navigate]);
+  }, [user, isSuccess, navigate, isError]);
 
   return (
     <>
