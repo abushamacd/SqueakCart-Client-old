@@ -2,19 +2,19 @@ import React, { useEffect } from "react";
 import { Typography, Table } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { getColors } from "../../features/color/colorSlice";
+import { createColor, getColors } from "../../features/color/colorSlice";
 import { FaRegEye } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 const Color = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getColors());
-  }, [dispatch]);
-
   const colors = useSelector((state) => state.color.colors);
   const { Title } = Typography;
+
   const columns = [
     {
       title: "No.",
@@ -47,6 +47,41 @@ const Color = () => {
       ),
     });
   }
+
+  // add color
+  let colorSchema = Yup.object().shape({
+    title: Yup.string().required("Name is required"),
+    code: Yup.string().required("Code is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      code: "",
+    },
+    validationSchema: colorSchema,
+    onSubmit: (values) => {
+      dispatch(createColor(values));
+    },
+  });
+
+  const newColor = useSelector((state) => state.color);
+  const { createdColor, isSuccess, isError } = newColor;
+
+  useEffect(() => {
+    if (isSuccess && createdColor?.data?.title) {
+      toast.success(`${createdColor?.data?.title}, Add Successfully`);
+      formik.resetForm();
+    }
+    if (isError) {
+      toast.error("Color Add Failed");
+    }
+  }, [createdColor, isSuccess, isError]);
+
+  useEffect(() => {
+    dispatch(getColors());
+  }, [dispatch, createdColor]);
+
   return (
     <div>
       <Title level={3}>Product Color</Title>
@@ -60,18 +95,44 @@ const Color = () => {
         <div className="md:w-[28%]">
           <div className="visibility bg-white box_shadow p-[20px] rounded-lg">
             <Title level={4}>Add New Color</Title>
-            <form action="">
+            <form onSubmit={formik.handleSubmit}>
               <div className="my-4">
-                <label htmlFor="blogName" className=" font-bold text-sm">
+                <label htmlFor="colorName" className=" font-bold text-sm">
+                  Color Name
+                </label>
+                <input
+                  onChange={formik.handleChange("title")}
+                  value={formik.values.title}
+                  placeholder="Color Hex Code"
+                  type="text"
+                  id="colorName"
+                  name="colorName"
+                  className="w-full bg-white rounded border border-gray-300 outline-none text-gray-700 py-1 px-3 mt-2 leading-8 transition-colors duration-200 ease-in-out"
+                />
+                {formik.touched.title && formik.errors.title ? (
+                  <div className="formik_err text-sm text-red-600">
+                    {formik.errors.title}
+                  </div>
+                ) : null}
+              </div>
+              <div className="my-4">
+                <label htmlFor="colorCode" className=" font-bold text-sm">
                   Color Code
                 </label>
                 <input
+                  onChange={formik.handleChange("code")}
+                  value={formik.values.code}
                   placeholder="Color Hex Code"
                   type="text"
-                  id="blogName"
-                  name="blogName"
+                  id="colorCode"
+                  name="colorCode"
                   className="w-full bg-white rounded border border-gray-300 outline-none text-gray-700 py-1 px-3 mt-2 leading-8 transition-colors duration-200 ease-in-out"
                 />
+                {formik.touched.code && formik.errors.code ? (
+                  <div className="formik_err text-sm text-red-600">
+                    {formik.errors.code}
+                  </div>
+                ) : null}
               </div>
               <button
                 type="submit"
