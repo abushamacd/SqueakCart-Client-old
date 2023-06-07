@@ -55,10 +55,10 @@ export const productSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(createBrand.fulfilled, (state, action) => {
-        state.createdBrand = action.payload;
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
+        state.createdBrand = action.payload;
       })
       .addCase(createBrand.rejected, (state, action) => {
         state.isLoading = false;

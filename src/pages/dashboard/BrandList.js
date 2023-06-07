@@ -73,7 +73,7 @@ const BrandList = () => {
       formik.resetForm();
     }
     if (isError) {
-      toast.error("Product Add Failed");
+      toast.error("Brand Add Failed");
     }
   }, [createdBrand, isSuccess, isError]);
 
