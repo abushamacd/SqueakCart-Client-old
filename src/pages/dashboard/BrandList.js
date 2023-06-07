@@ -12,10 +12,6 @@ import { toast } from "react-toastify";
 const BrandList = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getBrands());
-  }, [dispatch]);
-
   // get all brands
   const brands = useSelector((state) => state.brand.brands);
   const { Title } = Typography;
@@ -55,7 +51,7 @@ const BrandList = () => {
   // Add brand
   // validation
   let brandSchema = Yup.object().shape({
-    title: Yup.string().required("Title is required"),
+    title: Yup.string().required("Name is required"),
   });
 
   const formik = useFormik({
@@ -64,34 +60,26 @@ const BrandList = () => {
     },
     validationSchema: brandSchema,
     onSubmit: (values) => {
-      // console.log(values);
-      dispatch(createBrand());
+      dispatch(createBrand(values));
     },
   });
 
-  // useEffect(() => {
-  //   dispatch(getBrands());
-  //   dispatch(getProductCategories());
-  //   dispatch(getColors());
-  //   formik.values.category = category;
-  //   formik.values.tag = tag;
-  //   formik.values.color = color;
-  //   formik.values.images = proImages;
-  // }, [category, tag, dispatch, color, proImages, formik.values]);
+  const newBrand = useSelector((state) => state.brand);
+  const { createdBrand, isSuccess, isError } = newBrand;
 
-  // useEffect(() => {
-  //   if (isSuccess && createdProduct?.data?.title) {
-  //     toast.success(`${createdProduct?.data?.title}, Add Successfully`);
-  //     formik.resetForm();
-  //     // setTimeout(() => {
-  //     //   dispatch(resetState());
-  //     //   // window.location.reload();
-  //     // }, 1500);
-  //   }
-  //   if (isError) {
-  //     toast.error("Product Add Failed");
-  //   }
-  // }, [createdProduct, isSuccess, isError]);
+  useEffect(() => {
+    if (isSuccess && createdBrand?.data?.title) {
+      toast.success(`${createdBrand?.data?.title}, Add Successfully`);
+      formik.resetForm();
+    }
+    if (isError) {
+      toast.error("Product Add Failed");
+    }
+  }, [createdBrand, isSuccess, isError]);
+
+  useEffect(() => {
+    dispatch(getBrands());
+  }, [dispatch, createdBrand]);
 
   return (
     <div>
