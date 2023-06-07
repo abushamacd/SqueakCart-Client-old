@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import { Typography, Table } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { getBrands } from "../../features/brand/brandSlice";
+import { createBrand, getBrands } from "../../features/brand/brandSlice";
 import { FaRegEye } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 const BrandList = () => {
   const dispatch = useDispatch();
@@ -13,6 +16,7 @@ const BrandList = () => {
     dispatch(getBrands());
   }, [dispatch]);
 
+  // get all brands
   const brands = useSelector((state) => state.brand.brands);
   const { Title } = Typography;
   const columns = [
@@ -47,6 +51,48 @@ const BrandList = () => {
       ),
     });
   }
+
+  // Add brand
+  // validation
+  let brandSchema = Yup.object().shape({
+    title: Yup.string().required("Title is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+    },
+    validationSchema: brandSchema,
+    onSubmit: (values) => {
+      // console.log(values);
+      dispatch(createBrand());
+    },
+  });
+
+  // useEffect(() => {
+  //   dispatch(getBrands());
+  //   dispatch(getProductCategories());
+  //   dispatch(getColors());
+  //   formik.values.category = category;
+  //   formik.values.tag = tag;
+  //   formik.values.color = color;
+  //   formik.values.images = proImages;
+  // }, [category, tag, dispatch, color, proImages, formik.values]);
+
+  // useEffect(() => {
+  //   if (isSuccess && createdProduct?.data?.title) {
+  //     toast.success(`${createdProduct?.data?.title}, Add Successfully`);
+  //     formik.resetForm();
+  //     // setTimeout(() => {
+  //     //   dispatch(resetState());
+  //     //   // window.location.reload();
+  //     // }, 1500);
+  //   }
+  //   if (isError) {
+  //     toast.error("Product Add Failed");
+  //   }
+  // }, [createdProduct, isSuccess, isError]);
+
   return (
     <div>
       <Title level={3}>Product Brands</Title>
@@ -60,18 +106,25 @@ const BrandList = () => {
         <div className="md:w-[28%]">
           <div className="visibility bg-white box_shadow p-[20px] rounded-lg">
             <Title level={4}>Add New Brand</Title>
-            <form action="">
+            <form onSubmit={formik.handleSubmit}>
               <div className="my-4">
                 <label htmlFor="blogName" className=" font-bold text-sm">
                   Brand Name
                 </label>
                 <input
+                  onChange={formik.handleChange("title")}
+                  value={formik.values.title}
                   placeholder="Product Brand"
                   type="text"
                   id="blogName"
                   name="blogName"
                   className="w-full bg-white rounded border border-gray-300 outline-none text-gray-700 py-1 px-3 mt-2 leading-8 transition-colors duration-200 ease-in-out"
                 />
+                {formik.touched.title && formik.errors.title ? (
+                  <div className="formik_err text-sm text-red-600">
+                    {formik.errors.title}
+                  </div>
+                ) : null}
               </div>
               <button
                 type="submit"
