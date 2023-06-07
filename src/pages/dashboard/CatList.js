@@ -53,7 +53,6 @@ const CatList = () => {
   }
 
   // Add brand
-  // validation
   let productCategorySchema = Yup.object().shape({
     title: Yup.string().required("Name is required"),
   });
