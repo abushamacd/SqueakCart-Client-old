@@ -10,7 +10,8 @@ import blogCategoryReducer from "../features/blogCategory/blogCategorySlice";
 import couponReducer from "../features/coupon/couponSlice";
 import orderReducer from "../features/order/orderSlice";
 import contactReducer from "../features/enquire/enquireSlice";
-import imageReducer from "../features/upload/imageSlice";
+import proImgReducer from "../features/upload/proImgSlice";
+import blogImgReducer from "../features/upload/blogImgSlice";
 
 export const store = configureStore({
   // devTools: false,
@@ -26,6 +27,7 @@ export const store = configureStore({
     coupon: couponReducer,
     order: orderReducer,
     contact: contactReducer,
-    image: imageReducer,
+    proImg: proImgReducer,
+    blogImg: blogImgReducer,
   },
 });

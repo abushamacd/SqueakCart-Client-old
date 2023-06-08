@@ -6,26 +6,24 @@ import EditorToolbar, {
   modules,
   formats,
 } from "../../components/EditorToolbar";
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { getBrands } from "../../features/brand/brandSlice";
 import { getProductCategories } from "../../features/productCategory/productCategorySlice";
 import { getColors } from "../../features/color/colorSlice";
-import { imageDelete, imageUpload } from "../../features/upload/imageSlice";
 import Dropzone from "react-dropzone";
 import { AiOutlineDelete } from "react-icons/ai";
 import { createProduct, resetState } from "../../features/product/productSlice";
 import { toast } from "react-toastify";
+import {
+  proImgDelete,
+  proImgReset,
+  proImgUpload,
+} from "../../features/upload/proImgSlice";
 
 const AddProduct = () => {
-  // date
-  dayjs.extend(customParseFormat);
   const { Title } = Typography;
-  // blog picture
-
   const [category, setCategory] = useState([]);
   const [color, setColor] = useState([]);
   const [tag, setTag] = useState([]);
@@ -60,7 +58,7 @@ const AddProduct = () => {
     });
   });
 
-  const productImages = useSelector((state) => state.image.images);
+  const productImages = useSelector((state) => state.proImg.proImages);
   const proImages = useMemo(() => {
     const proImages = [];
     productImages?.forEach((img) => {
@@ -149,12 +147,9 @@ const AddProduct = () => {
     if (isSuccess && createdProduct?.data?.title) {
       toast.success(`${createdProduct?.data?.title}, Add Successfully`);
       formik.resetForm();
-      // setColor(null);
-      // setTag(null);
-      // setCategory(null);
       setTimeout(() => {
         dispatch(resetState());
-        // window.location.reload();
+        dispatch(proImgReset());
       }, 1500);
     }
     if (isError) {
@@ -180,7 +175,7 @@ const AddProduct = () => {
           <form className="mt-4" onSubmit={formik.handleSubmit}>
             {/* name */}
             <div className="mb-4">
-              <label htmlFor="blogName" className=" font-bold text-sm">
+              <label htmlFor="productName" className=" font-bold text-sm">
                 Product Title
               </label>
               <input
@@ -188,8 +183,8 @@ const AddProduct = () => {
                 value={formik.values.title}
                 placeholder="Product Title"
                 type="text"
-                id="blogName"
-                name="blogName"
+                id="productName"
+                name="productName"
                 className="w-full bg-white rounded border border-gray-300 outline-none text-gray-700 py-1 px-3 mt-2 leading-8 transition-colors duration-200 ease-in-out"
               />
               {formik.touched.title && formik.errors.title ? (
@@ -332,7 +327,7 @@ const AddProduct = () => {
               {proImages?.map((image, i) => (
                 <div key={i} className="relative w-[48%]">
                   <button
-                    onClick={() => dispatch(imageDelete(image.public_id))}
+                    onClick={() => dispatch(proImgDelete(image.public_id))}
                     className="absolute right-1 top-1 duration-300 bg-white p-1 rounded-full"
                   >
                     <AiOutlineDelete color="red" />
@@ -347,7 +342,9 @@ const AddProduct = () => {
             </div>
             <div className="mt-4 border rounded-md text-center p-4">
               <Dropzone
-                onDrop={(acceptedFiles) => dispatch(imageUpload(acceptedFiles))}
+                onDrop={(acceptedFiles) =>
+                  dispatch(proImgUpload(acceptedFiles))
+                }
               >
                 {({ getRootProps, getInputProps }) => (
                   <section>

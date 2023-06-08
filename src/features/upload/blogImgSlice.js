@@ -1,77 +1,80 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import imageService from "./imageService";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import blogImgService from "./blogImgService";
 
 const initialState = {
-  images: [],
+  blogImages: [],
   isLoading: false,
   isError: false,
   isSuccess: false,
   message: "",
 };
 
-export const imageUpload = createAsyncThunk(
-  "imageUpload",
+export const blogImgUpload = createAsyncThunk(
+  "blogImgUpload",
   async (data, thunkApi) => {
     try {
       const formData = new FormData();
       data.forEach((image) => {
         formData.append("images", image);
       });
-      return await imageService.imageUpload(formData);
+      return await blogImgService.blogImgUpload(formData);
     } catch (error) {
       return thunkApi.rejectWithValue(error);
     }
   }
 );
 
-export const imageDelete = createAsyncThunk(
-  "imageDelete",
+export const blogImgDelete = createAsyncThunk(
+  "blogImgDelete",
   async (id, thunkApi) => {
     try {
-      return await imageService.imageDelete(id);
+      return await blogImgService.blogImgDelete(id);
     } catch (error) {
       return thunkApi.rejectWithValue(error);
     }
   }
 );
 
+export const blogImgReset = createAction("Reset_all");
+
 export const imageSlice = createSlice({
-  name: "images",
+  name: "blogImages",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(imageUpload.pending, (state) => {
+      .addCase(blogImgUpload.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(imageUpload.fulfilled, (state, action) => {
-        state.images = [...state.images, action.payload.data];
+      .addCase(blogImgUpload.fulfilled, (state, action) => {
+        state.blogImages = [...state.blogImages, action.payload.data];
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
       })
-      .addCase(imageUpload.rejected, (state, action) => {
+      .addCase(blogImgUpload.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
         state.isError = true;
         state.message = action.error;
-        state.images = null;
+        state.blogImages = null;
       })
-      .addCase(imageDelete.pending, (state) => {
+      .addCase(blogImgDelete.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(imageDelete.fulfilled, (state, action) => {
+      .addCase(blogImgDelete.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
-        state.images = [];
+        state.blogImages = [];
       })
-      .addCase(imageDelete.rejected, (state, action) => {
+      .addCase(blogImgDelete.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
         state.isError = true;
         state.message = action.error;
-      });
+      })
+      .addCase(blogImgReset, () => initialState);
   },
 });
 

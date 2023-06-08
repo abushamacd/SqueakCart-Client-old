@@ -1,89 +1,149 @@
-import React, { useState } from "react";
-import { Typography, DatePicker, Radio, Space, Select, Upload } from "antd";
+import React, { useMemo, useState } from "react";
+import { Typography, DatePicker, Radio, Space, Select } from "antd";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import EditorToolbar, {
   modules,
   formats,
 } from "../../components/EditorToolbar";
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import ImgCrop from "antd-img-crop";
+import Dropzone from "react-dropzone";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
+import { getBlogCategories } from "../../features/blogCategory/blogCategorySlice";
+import { AiOutlineDelete } from "react-icons/ai";
+import {
+  blogImgDelete,
+  blogImgReset,
+  blogImgUpload,
+} from "../../features/upload/blogImgSlice";
+import { createBlog, resetState } from "../../features/blog/blogSlice";
 
 const AddBlog = () => {
-  // date
-  dayjs.extend(customParseFormat);
-  const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY", "DD-MM-YYYY", "DD-MM-YY"];
   const { Title } = Typography;
-  const [value, setValue] = useState("");
+  const [category, setCategory] = useState([]);
+  const [date, setDate] = useState("");
+  const dispatch = useDispatch();
   // visibility
   const [visibility, setVisibility] = useState("published");
-  const visibilityCtrl = (e) => {
-    setVisibility(e.target.value);
-    console.log("radio checked", visibility);
-  };
-  // category
-  const options = [];
-  for (let i = 10; i < 36; i++) {
-    options.push({
-      label: i.toString(36) + i,
-      value: i.toString(36) + i,
-    });
-  }
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
+  // date
+  const handleDate = (date, dateString) => {
+    setDate(dateString);
   };
 
-  // blog picture
-  const [fileList, setFileList] = useState([
-    {
-      uid: "-1",
-      name: "image.png",
-      status: "done",
-      url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-    },
-  ]);
-  const onChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
-  const onPreview = async (file) => {
-    let src = file.url;
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-        reader.onload = () => resolve(reader.result);
+  const blogCategories = useSelector(
+    (state) => state.blogCategory.blogCategories.data
+  );
+  const categoryOptions = [];
+  blogCategories?.forEach((cat) => {
+    categoryOptions.push({
+      value: cat.title,
+      label: cat.title,
+    });
+  });
+
+  const blogImages = useSelector((state) => state.blogImg.blogImages);
+  const bImages = useMemo(() => {
+    const bImages = [];
+    blogImages?.forEach((img) => {
+      bImages.push({
+        public_id: img[0].public_id,
+        url: img[0].url,
       });
+    });
+    return bImages;
+  }, [blogImages]);
+
+  // validation
+  let blogSchema = Yup.object().shape({
+    title: Yup.string().required("Title is required"),
+    description: Yup.string().required("Description is required"),
+    visibility: Yup.string().required("visibility is required"),
+    date: Yup.string().required("date is required"),
+    category: Yup.array()
+      .min(1, "Pick at least one category")
+      .required("category is Required"),
+    images: Yup.array().required("Image is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      description: "",
+      visibility: visibility,
+      date: date,
+      category: category,
+      images: "",
+    },
+
+    validationSchema: blogSchema,
+
+    onSubmit: (values) => {
+      dispatch(createBlog(values));
+    },
+  });
+
+  useEffect(() => {
+    dispatch(getBlogCategories());
+    formik.values.category = category;
+    formik.values.visibility = visibility;
+    formik.values.date = date;
+    formik.values.images = bImages;
+  }, [category, dispatch, visibility, bImages, date, formik.values]);
+
+  const newBlog = useSelector((state) => state.blog);
+  const { createdBlog, isSuccess, isError } = newBlog;
+  useEffect(() => {
+    if (isSuccess && createdBlog?.data?.title) {
+      toast.success(`${createdBlog?.data?.title}, Add Successfully`);
+      formik.resetForm();
+      setTimeout(() => {
+        dispatch(resetState());
+        dispatch(blogImgReset());
+      }, 1500);
     }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow?.document.write(image.outerHTML);
-  };
+    if (isError) {
+      toast.error("Product Add Failed");
+    }
+  }, [createdBlog, isSuccess, isError]);
+
   return (
     <div>
       <div className="flex justify-between">
         <Title level={3}>Add Blog</Title>
-        <button className="first_button rounded-md px-5 py-2 text-sm text-white uppercase">
+        <button
+          type="submit"
+          onClick={formik.handleSubmit}
+          className="first_button rounded-md px-5 py-2 text-sm text-white uppercase"
+        >
           Save
         </button>
       </div>
       <div className="md:flex justify-between mt-[20px] blog">
         <div className="bg-white box_shadow p-[20px] rounded-lg  md:w-[70%] md:mb-0 mb-[20px] ">
           <Title level={4}>Blog Details</Title>
-          <form className="mt-4" action="">
+          <form className="mt-4" onSubmit={formik.handleSubmit}>
             {/* name */}
             <div className="mb-4">
               <label htmlFor="blogName" className=" font-bold text-sm">
                 Blog Title
               </label>
               <input
+                onChange={formik.handleChange("title")}
+                value={formik.values.title}
                 placeholder="Blog Title"
                 type="text"
                 id="blogName"
                 name="blogName"
                 className="w-full bg-white rounded border border-gray-300 outline-none text-gray-700 py-1 px-3 mt-2 leading-8 transition-colors duration-200 ease-in-out"
               />
+              {formik.touched.title && formik.errors.title ? (
+                <div className="formik_err text-sm text-red-600">
+                  {formik.errors.title}
+                </div>
+              ) : null}
             </div>
             {/* desc */}
             <div className="mb-4 ">
@@ -94,12 +154,17 @@ const AddBlog = () => {
                 <EditorToolbar toolbarId={"t1"} />
                 <ReactQuill
                   theme="snow"
-                  value={value}
-                  onChange={setValue}
+                  onChange={formik.handleChange("description")}
+                  value={formik.values.description}
                   placeholder={"Write something..."}
                   modules={modules("t1")}
                   formats={formats}
                 />
+                {formik.touched.description && formik.errors.description ? (
+                  <div className="formik_err text-sm text-red-600">
+                    {formik.errors.description}
+                  </div>
+                ) : null}
               </div>
             </div>
           </form>
@@ -109,7 +174,7 @@ const AddBlog = () => {
             <Title level={4}>Visibility</Title>
             <Radio.Group
               className="my-4"
-              onChange={visibilityCtrl}
+              onChange={(e) => setVisibility(e.target.value)}
               defaultValue="published"
               value={visibility}
             >
@@ -119,44 +184,71 @@ const AddBlog = () => {
                 <Radio value="hidden">Hidden</Radio>
               </Space>
             </Radio.Group>
+            {formik.touched.visibility && formik.errors.visibility ? (
+              <div className="formik_err text-sm text-red-600">
+                {formik.errors.visibility}
+              </div>
+            ) : null}
             <h5 className="mb-2 font-bold text-sm">Publish date</h5>
             <div>
-              <DatePicker
-                className="w-full h-[40px]"
-                defaultValue={dayjs("01/01/2023", dateFormatList[0])}
-                format={dateFormatList}
-              />
+              <DatePicker className="w-full h-[40px]" onChange={handleDate} />
+              {formik.touched.date && formik.errors.date ? (
+                <div className="formik_err text-sm text-red-600">
+                  {formik.errors.date}
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="blog_cat mt-4 bg-white box_shadow p-[20px] rounded-lg">
             <Title level={4}>Blog Category</Title>
             <Select
-              className="mt-4 h-[40px]"
+              className="mt-4 h-[40px] w-full capitalize"
               mode="multiple"
               allowClear
-              style={{
-                width: "100%",
-              }}
               placeholder="Please select"
-              defaultValue={[]}
-              onChange={handleChange}
-              options={options}
+              onChange={(e) => setCategory(e)}
+              options={categoryOptions}
             />
+            {formik.touched.category && formik.errors.category ? (
+              <div className="formik_err text-sm text-red-600">
+                {formik.errors.category}
+              </div>
+            ) : null}
           </div>
           <div className="blog_picture mt-4 bg-white box_shadow p-[20px] rounded-lg">
             <Title level={4}>Blog Picture</Title>
-            <div className="mt-4">
-              <ImgCrop rotationSlider>
-                <Upload
-                  action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                  listType="picture-card"
-                  fileList={fileList}
-                  onChange={onChange}
-                  onPreview={onPreview}
-                >
-                  {fileList.length < 5 && "+ Upload"}
-                </Upload>
-              </ImgCrop>
+            <div className="show_upload_images mt-4 flex flex-wrap gap-[2%] ">
+              {bImages?.map((image, i) => (
+                <div key={i} className="relative w-[48%]">
+                  <button
+                    onClick={() => dispatch(blogImgDelete(image.public_id))}
+                    className="absolute right-1 top-1 duration-300 bg-white p-1 rounded-full"
+                  >
+                    <AiOutlineDelete color="red" />
+                  </button>
+                  <img
+                    className=" rounded-md"
+                    alt="product img"
+                    src={image.url}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 border rounded-md text-center p-4">
+              <Dropzone
+                onDrop={(acceptedFiles) =>
+                  dispatch(blogImgUpload(acceptedFiles))
+                }
+              >
+                {({ getRootProps, getInputProps }) => (
+                  <section>
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      <p>Upload Image</p>
+                    </div>
+                  </section>
+                )}
+              </Dropzone>
             </div>
           </div>
         </div>
