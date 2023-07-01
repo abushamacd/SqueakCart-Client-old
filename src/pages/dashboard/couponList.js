@@ -13,7 +13,7 @@ const CouponList = () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState("");
   const coupons = useSelector((state) => state.coupon.coupons);
-  console.log(coupons);
+
   const { Title } = Typography;
   const columns = [
     {
